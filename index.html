@@ -63,7 +63,8 @@
             transition: opacity 0.3s ease-in-out;
         }
 
-        .image-track { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        /* Updated for faster swipe speed (0.2s) */
+        .image-track { transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
 
         /* Desktop Dropdown */
         .dropdown-menu {
@@ -611,8 +612,8 @@
                 manualImages: [
                     'white jersey front.jpg',
                     'white jersey back.jpg',
-                    'black jersey back.jpg',
-                    'grey striped jersy front.jpg'
+                    'grey striped jersy front.jpg',
+                    'black jersey back.jpg'
                 ]
             },
             {
@@ -914,7 +915,12 @@
                                 <div class="flex gap-3 flex-wrap">
                                     ${product.colors.map(c => `
                                         <div class="color-btn">
-                                            <input type="radio" name="color-${product.id}" id="c-${product.id}-${c.id}" value="${c.name}" class="hidden">
+                                            <input type="radio" 
+                                                   name="color-${product.id}" 
+                                                   id="c-${product.id}-${c.id}" 
+                                                   value="${c.name}" 
+                                                   class="hidden"
+                                                   onchange="handleColorSelect(this, ${product.id}, '${c.name}')">
                                             <label for="c-${product.id}-${c.id}" class="block w-6 h-6 rounded-full border border-slate-600 cursor-pointer shadow-sm transition-all" style="background-color: ${c.hex}" title="${c.name}"></label>
                                         </div>`).join('')}
                                 </div>
@@ -924,6 +930,29 @@
                     </div>
                 </div>
             `}).join('');
+        }
+
+        // New function to handle color selection and update image
+        function handleColorSelect(input, pid, colorName) {
+            const p = products.find(i => i.id === pid);
+            if(!p) return;
+            
+            // Heuristic: Extract the main color word (e.g., "Green Cap" -> "green")
+            // and look for it in the image filenames
+            const mainColor = colorName.toLowerCase().split(' ')[0];
+
+            // Find the first image that contains the color name
+            const idx = p.images.findIndex(img => img.toLowerCase().includes(mainColor));
+            
+            if (idx !== -1) {
+                const card = input.closest('.product-card');
+                const track = card.querySelector('.image-track');
+                
+                // Update track position
+                const total = track.children.length;
+                track.dataset.index = idx;
+                track.style.transform = `translateX(-${idx * (100 / total)}%)`;
+            }
         }
 
         // Updated logic: Translation is relative to the TRACK width (which is N * 100%)

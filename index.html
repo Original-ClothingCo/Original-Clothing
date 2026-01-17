@@ -515,6 +515,10 @@
         let currentLightboxImageIndex = 0;
         let activeCategory = 'all';
         let searchQuery = '';
+        
+        // Touch handling variables
+        let touchStartX = 0;
+        let touchEndX = 0;
 
         // CONFIGURATION: Your GitHub Image Path
         // This points to the specific commit and 'Websites Images' folder you provided.
@@ -867,7 +871,9 @@
                 
                 return `
                 <div class="product-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700/50 flex flex-col group">
-                    <div class="relative aspect-[3/4] overflow-hidden">
+                    <div class="relative aspect-[3/4] overflow-hidden" 
+                         ontouchstart="handleTouchStart(event)" 
+                         ontouchend="handleTouchEnd(event)">
                         <!-- Product ID Indicator -->
                         <div class="absolute top-3 left-3 z-20 bg-black/60 backdrop-blur-md text-white text-[10px] font-mono px-2 py-1 rounded border border-white/10 pointer-events-none">
                             ID: ${product.id}
@@ -1104,6 +1110,63 @@
             t.innerHTML = `<span class="font-bold text-sm">${msg}</span>`;
             c.appendChild(t);
             setTimeout(() => { t.classList.add('opacity-0', 'translate-x-12'); t.style.transition = 'all 0.5s ease'; setTimeout(() => t.remove(), 500); }, 3000);
+        }
+
+        // --- Touch & Swipe Logic ---
+
+        function handleTouchStart(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }
+
+        function handleTouchEnd(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe(e.currentTarget.querySelector('.image-track'));
+        }
+
+        function handleSwipe(track) {
+            if (!track) return;
+            const threshold = 50; // Minimum distance for a swipe
+            
+            if (touchEndX < touchStartX - threshold) {
+                // Swiped Left -> Next Image
+                changeImageByTrack(track, 1);
+            }
+            if (touchEndX > touchStartX + threshold) {
+                // Swiped Right -> Previous Image
+                changeImageByTrack(track, -1);
+            }
+        }
+
+        function changeImageByTrack(tr, dir) {
+            const total = tr.children.length; 
+            let idx = parseInt(tr.dataset.index);
+            
+            idx = (idx + dir + total) % total;
+            tr.dataset.index = idx;
+            
+            // Logic must match renderProducts width calculations:
+            // Moving 1 slide = (100 / total)% of the track width
+            tr.style.transform = `translateX(-${idx * (100 / total)}%)`;
+        }
+
+        // Updated original changeImage to use the shared logic
+        function changeImage(btn, dir) {
+            event.stopPropagation();
+            const tr = btn.closest('.relative').querySelector('.image-track');
+            changeImageByTrack(tr, dir);
+        }
+
+        function openLightbox(pid, idx) { 
+            // Prevent lightbox if it was a swipe (allow small variance for tap)
+            if (Math.abs(touchEndX - touchStartX) > 10) return;
+
+            currentLightboxProductId = pid; 
+            currentLightboxImageIndex = idx; 
+            const p = products.find(i => i.id === pid); 
+            const img = document.getElementById('lightbox-img'); 
+            img.src = p.images[idx]; 
+            document.getElementById('lightbox').classList.remove('hidden'); 
+            document.body.style.overflow = 'hidden'; 
         }
 
         document.addEventListener('DOMContentLoaded', () => { renderProducts(); document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeLightbox(); closeModal(); } }); });

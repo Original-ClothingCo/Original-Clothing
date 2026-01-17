@@ -517,9 +517,9 @@
         let searchQuery = '';
 
         // CONFIGURATION: Your GitHub Image Path
-        // This points to the specific commit you provided. 
-        // Ensure your images in the 'images' folder match the product names (e.g., "Heritage Tee 1.jpg")
-        const githubBaseUrl = "https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/195bd126e1a39fd0fd7664c469b322ec0aba7668/images/";
+        // This points to the specific commit and 'Websites Images' folder you provided.
+        // Ensure your images in this folder match the product names (e.g., "Heritage Tee 1.jpg")
+        const githubBaseUrl = "https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/";
         
         // Helper to generate image URLs with a fallback placeholder
         // It tries to find: "Heritage Tee 1.jpg", "Heritage Tee 2.jpg", etc.
@@ -532,112 +532,196 @@
         };
 
         const products = [
-            // MEN (8 Items, 4 Colors each)
-            { id: 1, category: 'men', name: 'Heritage Tee', price: 28.00, colors: [
-                {id: 'blk', name: 'Black', hex: '#000000'}, {id: 'gry', name: 'Gray', hex: '#6b7280'}, 
-                {id: 'wht', name: 'White', hex: '#ffffff'}, {id: 'nvy', name: 'Navy', hex: '#1e3a8a'}
-            ] },
-            { id: 2, category: 'men', name: 'Alpine Hoodie', price: 65.00, colors: [
-                {id: 'nvy', name: 'Navy', hex: '#1e3a8a'}, {id: 'cha', name: 'Charcoal', hex: '#374151'},
-                {id: 'blk', name: 'Black', hex: '#000000'}, {id: 'red', name: 'Red', hex: '#ef4444'}
-            ] },
-            { id: 3, category: 'men', name: 'Urban Bomber', price: 120.00, colors: [
-                {id: 'olv', name: 'Olive', hex: '#365314'}, {id: 'ony', name: 'Onyx', hex: '#000000'},
-                {id: 'nav', name: 'Navy', hex: '#1e3a8a'}, {id: 'gry', name: 'Gray', hex: '#6b7280'}
-            ] },
-            { id: 4, category: 'men', name: 'Transit Joggers', price: 55.00, colors: [
-                {id: 'snd', name: 'Sand', hex: '#d6d3d1'}, {id: 'blk', name: 'Black', hex: '#000000'},
-                {id: 'gry', name: 'Gray', hex: '#6b7280'}, {id: 'olv', name: 'Olive', hex: '#365314'}
-            ] },
-            { id: 5, category: 'men', name: 'Tech Shell Jacket', price: 145.00, colors: [
-                {id: 'blu', name: 'Blue', hex: '#1e40af'}, {id: 'blk', name: 'Black', hex: '#000000'},
-                {id: 'gry', name: 'Gray', hex: '#6b7280'}, {id: 'grn', name: 'Green', hex: '#15803d'}
-            ] },
-            { id: 6, category: 'men', name: 'Oxford Shirt', price: 58.00, colors: [
-                {id: 'wht', name: 'White', hex: '#ffffff'}, {id: 'blu', name: 'Light Blue', hex: '#bfdbfe'},
-                {id: 'pnk', name: 'Pink', hex: '#fbcfe8'}, {id: 'gry', name: 'Gray', hex: '#e5e7eb'}
-            ] },
-            { id: 7, category: 'men', name: 'Denim Classic', price: 88.00, colors: [
-                {id: 'ind', name: 'Indigo', hex: '#312e81'}, {id: 'blk', name: 'Black', hex: '#000000'},
-                {id: 'ltb', name: 'Light Wash', hex: '#93c5fd'}, {id: 'gry', name: 'Gray', hex: '#4b5563'}
-            ] },
-            { id: 8, category: 'men', name: 'Canvas Chinos', price: 62.00, colors: [
-                {id: 'tan', name: 'Tan', hex: '#92400e'}, {id: 'nvy', name: 'Navy', hex: '#1e3a8a'},
-                {id: 'olv', name: 'Olive', hex: '#365314'}, {id: 'gry', name: 'Gray', hex: '#6b7280'}
-            ] },
-
-            // WOMEN (8 Items, 4 Colors each)
-            { id: 9, category: 'women', name: 'Silk Blouse', price: 72.00, colors: [
-                {id: 'crm', name: 'Cream', hex: '#fef3c7'}, {id: 'blk', name: 'Black', hex: '#000000'},
-                {id: 'red', name: 'Red', hex: '#ef4444'}, {id: 'blu', name: 'Blue', hex: '#1e40af'}
-            ] },
-            { id: 10, category: 'women', name: 'Yoga Leggings', price: 48.00, colors: [
-                {id: 'plm', name: 'Plum', hex: '#701a75'}, {id: 'blk', name: 'Black', hex: '#000000'},
-                {id: 'gry', name: 'Gray', hex: '#4b5563'}, {id: 'tea', name: 'Teal', hex: '#115e59'}
-            ] },
-            { id: 11, category: 'women', name: 'Cashmere Knit', price: 110.00, colors: [
-                {id: 'gry', name: 'Grey', hex: '#9ca3af'}, {id: 'crm', name: 'Cream', hex: '#fef3c7'},
-                {id: 'pnk', name: 'Pink', hex: '#fbcfe8'}, {id: 'blk', name: 'Black', hex: '#000000'}
-            ] },
-            { id: 12, category: 'women', name: 'Floral Maxi', price: 85.00, colors: [
-                {id: 'flr', name: 'Floral', hex: '#ec4899'}, {id: 'blu', name: 'Blue Floral', hex: '#60a5fa'},
-                {id: 'yel', name: 'Yellow Floral', hex: '#fde047'}, {id: 'blk', name: 'Black Floral', hex: '#374151'}
-            ] },
-            { id: 13, category: 'women', name: 'Classic Trench', price: 160.00, colors: [
-                {id: 'bge', name: 'Beige', hex: '#d6d3d1'}, {id: 'blk', name: 'Black', hex: '#000000'},
-                {id: 'nvy', name: 'Navy', hex: '#1e3a8a'}, {id: 'olv', name: 'Olive', hex: '#365314'}
-            ] },
-            { id: 14, category: 'women', name: 'Oversized Blazer', price: 95.00, colors: [
-                {id: 'blk', name: 'Black', hex: '#000000'}, {id: 'gry', name: 'Checkered', hex: '#4b5563'},
-                {id: 'tan', name: 'Tan', hex: '#d97706'}, {id: 'nvy', name: 'Navy', hex: '#1e3a8a'}
-            ] },
-            { id: 15, category: 'women', name: 'High-Waist Denim', price: 78.00, colors: [
-                {id: 'lbl', name: 'Light Blue', hex: '#bfdbfe'}, {id: 'dbl', name: 'Dark Blue', hex: '#1e3a8a'},
-                {id: 'blk', name: 'Black', hex: '#000000'}, {id: 'wht', name: 'White', hex: '#ffffff'}
-            ] },
-            { id: 16, category: 'women', name: 'Knit Ribbed Tank', price: 24.00, colors: [
-                {id: 'wht', name: 'White', hex: '#ffffff'}, {id: 'blk', name: 'Black', hex: '#000000'},
-                {id: 'bge', name: 'Beige', hex: '#d6d3d1'}, {id: 'grn', name: 'Green', hex: '#86efac'}
-            ] },
-
-            // KIDS (8 Items, 4 Colors each)
-            { id: 17, category: 'kids', name: 'Graphic Tee', price: 22.00, colors: [
-                {id: 'yel', name: 'Yellow', hex: '#fbbf24'}, {id: 'red', name: 'Red', hex: '#ef4444'},
-                {id: 'blu', name: 'Blue', hex: '#3b82f6'}, {id: 'grn', name: 'Green', hex: '#22c55e'}
-            ] },
-            { id: 18, category: 'kids', name: 'Puffer Vest', price: 45.00, colors: [
-                {id: 'red', name: 'Red', hex: '#ef4444'}, {id: 'nvy', name: 'Navy', hex: '#1e3a8a'},
-                {id: 'blk', name: 'Black', hex: '#000000'}, {id: 'pnk', name: 'Pink', hex: '#f472b6'}
-            ] },
-            { id: 19, category: 'kids', name: 'Fleece Onesie', price: 38.00, colors: [
-                {id: 'blu', name: 'Blue', hex: '#60a5fa'}, {id: 'pnk', name: 'Pink', hex: '#f472b6'},
-                {id: 'gry', name: 'Gray', hex: '#9ca3af'}, {id: 'crm', name: 'Cream', hex: '#fef3c7'}
-            ] },
-            { id: 20, category: 'kids', name: 'Denim Overalls', price: 42.00, colors: [
-                {id: 'ind', name: 'Indigo', hex: '#1e3a8a'}, {id: 'ltb', name: 'Light Wash', hex: '#93c5fd'},
-                {id: 'blk', name: 'Black', hex: '#000000'}, {id: 'stripe', name: 'Striped', hex: '#94a3b8'}
-            ] },
-            { id: 21, category: 'kids', name: 'Hooded Tracksuit', price: 55.00, colors: [
-                {id: 'gry', name: 'Grey', hex: '#4b5563'}, {id: 'blk', name: 'Black', hex: '#000000'},
-                {id: 'blu', name: 'Blue', hex: '#3b82f6'}, {id: 'red', name: 'Red', hex: '#ef4444'}
-            ] },
-            { id: 22, category: 'kids', name: 'Tutu Skirt', price: 28.00, colors: [
-                {id: 'pnk', name: 'Pink', hex: '#f472b6'}, {id: 'pur', name: 'Purple', hex: '#a855f7'},
-                {id: 'wht', name: 'White', hex: '#ffffff'}, {id: 'yel', name: 'Yellow', hex: '#facc15'}
-            ] },
-            { id: 23, category: 'kids', name: 'Striped Pajamas', price: 32.00, colors: [
-                {id: 'wht', name: 'White/Red', hex: '#ffffff'}, {id: 'blu', name: 'Blue/White', hex: '#bfdbfe'},
-                {id: 'grn', name: 'Green/White', hex: '#bbf7d0'}, {id: 'gry', name: 'Gray/White', hex: '#e5e7eb'}
-            ] },
-            { id: 24, category: 'kids', name: 'Rain Slicker', price: 40.00, colors: [
-                {id: 'yel', name: 'Yellow', hex: '#fbbf24'}, {id: 'red', name: 'Red', hex: '#ef4444'},
-                {id: 'blu', name: 'Blue', hex: '#3b82f6'}, {id: 'pnk', name: 'Pink', hex: '#ec4899'}
-            ] }
+            {
+                id: 101,
+                category: 'men',
+                name: 'Classic Tee',
+                price: 28.00,
+                colors: [
+                    {id: 'blk', name: 'Black', hex: '#000000'},
+                    {id: 'wht', name: 'White', hex: '#ffffff'},
+                    {id: 'pnk', name: 'Pink', hex: '#ec4899'},
+                    {id: 'red', name: 'Red', hex: '#ef4444'}
+                ],
+                // Manual image list ensuring front images are first
+                manualImages: [
+                    'black teeshirt front.jpg',
+                    'white teeshirt front.jpg',
+                    'pink teeshirt front.jpg',
+                    'red teeshirt front.jpg',
+                    'black teeshirt back.jpg',
+                    'white teeshirt back.jpg',
+                    'pink teeshirt back.jpg',
+                    'red teeshirt back.jpg',
+                    'assortment teeshirts.jpg'
+                ]
+            },
+            {
+                id: 102,
+                category: 'men',
+                name: 'Graphic Design Tee',
+                price: 35.00,
+                colors: [
+                    {id: 'blk', name: 'Black', hex: '#000000'}
+                ],
+                manualImages: [
+                    'black designed teeshirt front.jpg',
+                    'black designed teeshirt #5.jpg'
+                ]
+            },
+            {
+                id: 103,
+                category: 'men',
+                name: 'Essential Sweatpants',
+                price: 55.00,
+                colors: [
+                    {id: 'gry', name: 'Grey', hex: '#9ca3af'},
+                    {id: 'blk', name: 'Black', hex: '#000000'},
+                    {id: 'red', name: 'Red', hex: '#ef4444'},
+                    {id: 'grn', name: 'Green', hex: '#16a34a'},
+                    {id: 'pnk-str', name: 'Pink Striped', hex: '#fbcfe8'},
+                    {id: 'blk-str', name: 'Black Striped', hex: '#1e293b'},
+                    {id: 'blu-str', name: 'Blue Striped', hex: '#3b82f6'}
+                ],
+                manualImages: [
+                    'grey sweatpant front.jpg',
+                    'black sweatpants front.jpg',
+                    'red sweatpants front.jpg',
+                    'green sweatpants front.jpg',
+                    'pink stripped sweatpants front.jpg',
+                    'black stripped sweatpants front.jpg',
+                    'blue stripped sweatpants front.jpg',
+                    'assortment sweatpants.jpg',
+                    'assortment sweatpants #2.jpg'
+                ]
+            },
+            {
+                id: 104,
+                category: 'men',
+                name: 'Performance Jersey',
+                price: 45.00,
+                colors: [
+                    {id: 'wht', name: 'White', hex: '#ffffff'},
+                    {id: 'blk', name: 'Black', hex: '#000000'}
+                ],
+                manualImages: [
+                    'white jersey front.jpg',
+                    'white jersey back.jpg',
+                    'black jersey back.jpg',
+                    'grey striped jersy front.jpg'
+                ]
+            },
+            {
+                id: 105,
+                category: 'men',
+                name: 'Everyday Hoodie',
+                price: 65.00,
+                colors: [
+                    {id: 'gry', name: 'Grey', hex: '#9ca3af'},
+                    {id: 'blk', name: 'Black', hex: '#000000'},
+                    {id: 'red', name: 'Red', hex: '#ef4444'}
+                ],
+                manualImages: [
+                    'grey hoodie front.jpg',
+                    'black hoodie front.jpg',
+                    'red hoodie front.jpg'
+                ]
+            },
+            {
+                id: 106,
+                category: 'men',
+                name: 'Signature Headwear',
+                price: 25.00,
+                colors: [
+                    {id: 'grn', name: 'Green Cap', hex: '#16a34a'},
+                    {id: 'red', name: 'Red Cap', hex: '#ef4444'},
+                    {id: 'pnk', name: 'Pink Cap', hex: '#ec4899'}
+                ],
+                manualImages: [
+                    'green hat front.jpg',
+                    'green hat back.jpg',
+                    'red hat front.jpg',
+                    'red hat back.jpg',
+                    'pink hat front.jpg'
+                ]
+            },
+            {
+                id: 107,
+                category: 'men',
+                name: 'The Essentials Kit',
+                price: 120.00,
+                colors: [
+                    {id: 'blk', name: 'Black', hex: '#000000'},
+                    {id: 'red', name: 'Red', hex: '#ef4444'},
+                    {id: 'gry', name: 'Grey', hex: '#9ca3af'}
+                ],
+                manualImages: [
+                    'assortment kits.jpg'
+                ]
+            },
+            {
+                id: 108,
+                category: 'women',
+                name: 'Casual Pink Shirt',
+                price: 32.00,
+                colors: [
+                    {id: 'pnk', name: 'Pink', hex: '#fbcfe8'}
+                ],
+                manualImages: [
+                    'pink shirt front.jpg',
+                    'pink shirt back.jpg'
+                ]
+            },
+            {
+                id: 109,
+                category: 'men',
+                name: 'Essential Beanie',
+                price: 25.00,
+                colors: [
+                    {id: 'red', name: 'Red', hex: '#b91c1c'},
+                    {id: 'gry', name: 'Grey', hex: '#9ca3af'},
+                    {id: 'blk', name: 'Black', hex: '#000000'}
+                ],
+                manualImages: [
+                    'red sockhat front.jpg',
+                    'grey sockhat front.jpg',
+                    'black sockhat front.jpg'
+                ]
+            },
+            {
+                id: 110,
+                category: 'men',
+                name: 'Graphic Tee - Series 2',
+                price: 35.00,
+                colors: [
+                    {id: 'blk', name: 'Black', hex: '#000000'}
+                ],
+                manualImages: [
+                    'black designed teeshirt back #2.jpg',
+                    'black designed teeshirt #3.jpg'
+                ]
+            },
+            {
+                id: 111,
+                category: 'men',
+                name: 'Graphic Tee - Series 3',
+                price: 35.00,
+                colors: [
+                    {id: 'blk', name: 'Black', hex: '#000000'}
+                ],
+                manualImages: [
+                    'black designed teeshirt front #4.jpg'
+                ]
+            }
         ];
 
-        // Assign images using the helper
+        // Assign images using the manual list if available, otherwise use the helper
         products.forEach(p => {
-            p.images = getImagesForProduct(p.name);
+            if (p.manualImages) {
+                p.images = p.manualImages.map(filename => githubBaseUrl + encodeURIComponent(filename));
+            } else {
+                p.images = getImagesForProduct(p.name);
+            }
         });
 
         function toggleMobileMenu() {
@@ -776,19 +860,37 @@
                 noResults.classList.add('hidden');
             }
 
-            grid.innerHTML = filtered.map(product => `
+            grid.innerHTML = filtered.map(product => {
+                // Calculate widths for robust scrolling
+                const trackWidth = product.images.length * 100;
+                const imgWidth = 100 / product.images.length;
+                
+                return `
                 <div class="product-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700/50 flex flex-col group">
                     <div class="relative aspect-[3/4] overflow-hidden">
-                        <div class="image-track flex h-full" data-index="0">
-                            ${product.images.map((img, idx) => `<img src="${img}" onerror="this.onerror=null;this.src='https://placehold.co/600x800/1e293b/ffffff?text=${encodeURIComponent('Product ' + product.id)}+${idx+1}'" onclick="openLightbox(${product.id}, ${idx})" class="w-full h-full object-cover flex-shrink-0 cursor-zoom-in">`).join('')}
+                        <!-- Product ID Indicator -->
+                        <div class="absolute top-3 left-3 z-20 bg-black/60 backdrop-blur-md text-white text-[10px] font-mono px-2 py-1 rounded border border-white/10 pointer-events-none">
+                            ID: ${product.id}
                         </div>
-                        <div class="absolute inset-x-0 bottom-4 flex justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <button onclick="changeImage(this, -1)" class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/40"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
-                            <button onclick="changeImage(this, 1)" class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/40"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
+
+                        <!-- Image Track with Explicit Width -->
+                        <div class="image-track flex h-full" data-index="0" style="width: ${trackWidth}%;">
+                            ${product.images.map((img, idx) => `
+                                <div class="h-full relative overflow-hidden" style="width: ${imgWidth}%;">
+                                    <img src="${img}" 
+                                         onerror="this.onerror=null;this.src='https://placehold.co/600x800/1e293b/ffffff?text=${encodeURIComponent('Product ' + product.id)}+${idx+1}'" 
+                                         onclick="openLightbox(${product.id}, ${idx})" 
+                                         class="w-full h-full object-cover cursor-zoom-in absolute inset-0">
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="absolute inset-x-0 bottom-4 flex justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                            <button onclick="changeImage(this, -1)" class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/40 shadow-lg border border-white/10"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
+                            <button onclick="changeImage(this, 1)" class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/40 shadow-lg border border-white/10"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
                         </div>
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <!-- Replaced name with blank input box -->
                         <div class="mb-3">
                             <input type="text" placeholder="Enter Product Name" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm font-semibold">
                         </div>
@@ -803,7 +905,7 @@
                                 </div>
                             </div>
                             <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Color</p>
-                                <div class="flex gap-3">
+                                <div class="flex gap-3 flex-wrap">
                                     ${product.colors.map(c => `
                                         <div class="color-btn">
                                             <input type="radio" name="color-${product.id}" id="c-${product.id}-${c.id}" value="${c.name}" class="hidden">
@@ -815,18 +917,22 @@
                         <button onclick="addToCart(${product.id})" class="w-full bg-slate-700 hover:bg-sky-500 py-3 rounded-xl font-bold transition-all mt-auto">Add to Bag</button>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
         }
 
-        // Updated logic for consistent scrolling with percentages
+        // Updated logic: Translation is relative to the TRACK width (which is N * 100%)
+        // So moving one slide (1/Nth of track) is (100 / N)% of the track width.
         function changeImage(btn, dir) {
             event.stopPropagation();
             const tr = btn.closest('.relative').querySelector('.image-track');
-            const total = tr.children.length;
+            const total = tr.children.length; // Number of images
             let idx = parseInt(tr.dataset.index);
             
             idx = (idx + dir + total) % total;
             tr.dataset.index = idx;
+            
+            // Percentage to move: idx * (100% / total images)
+            // Example: 2 images. Track is 200%. Slide 0 = 0%. Slide 1 = 50% (of 200%).
             tr.style.transform = `translateX(-${idx * (100 / total)}%)`;
         }
 

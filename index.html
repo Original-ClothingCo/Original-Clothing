@@ -219,76 +219,72 @@
 
     <!-- SHOP VIEW -->
     <div id="view-shop" class="view-transition">
-        <section class="pt-32 pb-16 px-4">
-            <div class="container mx-auto">
-                <div class="relative rounded-3xl overflow-hidden h-[400px] md:h-[500px] flex items-center group"
-                     onmouseenter="stopHeroAutoPlay()"
-                     onmouseleave="startHeroAutoPlay()"
-                     ontouchstart="handleHeroTouchStart(event)"
-                     ontouchend="handleHeroTouchEnd(event)">
-                    
-                    <!-- Hero Slider Track (600% width for 6 slides) -->
-                    <div id="hero-track" class="flex w-[600%] h-full transition-transform duration-700 ease-in-out">
-                        <!-- Slide 1: Kits -->
-                        <div class="w-1/6 h-full relative cursor-pointer" onclick="navigate('shop')">
-                            <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20kits.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Essentials Kit">
-                            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 to-transparent"></div>
-                        </div>
-                        <!-- Slide 2: Sweatpants -->
-                        <div class="w-1/6 h-full relative cursor-pointer" onclick="navigate('shop')">
-                            <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20sweatpants.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Sweatpants Collection">
-                            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 to-transparent"></div>
-                        </div>
-                        <!-- Slide 3: Tees -->
-                        <div class="w-1/6 h-full relative cursor-pointer" onclick="navigate('shop')">
-                            <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20teeshirts.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Tee Collection">
-                            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 to-transparent"></div>
-                        </div>
-                        <!-- Slide 4: Hoodies -->
-                        <div class="w-1/6 h-full relative cursor-pointer" onclick="navigate('shop')">
-                            <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/grey%20hoodie%20front.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" style="object-position: top center;" alt="Hoodies">
-                            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 to-transparent"></div>
-                        </div>
-                        <!-- Slide 5: Graphic Tees -->
-                        <div class="w-1/6 h-full relative cursor-pointer" onclick="navigate('shop')">
-                            <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/black%20designed%20teeshirt%20front.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" style="object-position: top center;" alt="Graphic Tees">
-                            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 to-transparent"></div>
-                        </div>
-                        <!-- Slide 6: Headwear -->
-                        <div class="w-1/6 h-full relative cursor-pointer" onclick="navigate('shop')">
-                            <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/green%20hat%20front.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" style="object-position: top center;" alt="Signature Headwear">
-                            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 to-transparent"></div>
-                        </div>
-                    </div>
-
-                    <!-- Static Content Overlay -->
-                    <div class="absolute inset-0 z-10 flex items-center px-6 md:px-16 pointer-events-none">
-                        <div class="max-w-2xl pointer-events-auto">
-                            <span class="text-sky-400 font-bold tracking-widest uppercase text-sm mb-4 block">New Season Arrival</span>
-                            <h1 class="font-serif text-4xl md:text-7xl mb-6 leading-tight">Define Your <br><span class="italic text-sky-400">Original</span> Style.</h1>
-                            <p class="text-slate-300 text-base md:text-lg mb-8 max-w-md">Sustainable, high-quality essentials designed for the modern individual.</p>
-                            <a href="#collection" class="inline-block bg-sky-500 hover:bg-sky-600 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-xl shadow-sky-500/20">Explore Collection</a>
-                        </div>
-                    </div>
-
-                    <!-- Hero Touch Arrows (Visible on Mobile & Hover) -->
-                    <button onclick="prevHeroSlide(); stopHeroAutoPlay();" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all active:scale-95 opacity-100 md:opacity-0 md:group-hover:opacity-100">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                    </button>
-                    <button onclick="nextHeroSlide(); stopHeroAutoPlay();" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all active:scale-95 opacity-100 md:opacity-0 md:group-hover:opacity-100">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                    </button>
-
-                    <!-- Slider Navigation Dots (6 Ticks) -->
-                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
-                        <button onclick="goToHeroSlide(0)" class="w-3 h-3 rounded-full bg-white transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
-                        <button onclick="goToHeroSlide(1)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
-                        <button onclick="goToHeroSlide(2)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
-                        <button onclick="goToHeroSlide(3)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
-                        <button onclick="goToHeroSlide(4)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
-                        <button onclick="goToHeroSlide(5)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
-                    </div>
+        <section class="relative w-full h-screen overflow-hidden group"
+                 onmouseenter="stopHeroAutoPlay()"
+                 onmouseleave="startHeroAutoPlay()"
+                 ontouchstart="handleHeroTouchStart(event)"
+                 ontouchend="handleHeroTouchEnd(event)">
+            
+            <!-- Hero Slider Track (600% width for 6 slides) -->
+            <div id="hero-track" class="flex w-[600%] h-full transition-transform duration-700 ease-in-out">
+                <!-- Slide 1: Kits -->
+                <div class="w-1/6 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
+                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20kits.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Essentials Kit">
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 </div>
+                <!-- Slide 2: Sweatpants -->
+                <div class="w-1/6 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
+                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20sweatpants.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Sweatpants Collection">
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
+                </div>
+                <!-- Slide 3: Tees -->
+                <div class="w-1/6 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
+                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20teeshirts.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Tee Collection">
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
+                </div>
+                <!-- Slide 4: Hoodies -->
+                <div class="w-1/6 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
+                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/grey%20hoodie%20front.jpg" class="absolute inset-0 w-full h-full object-cover" style="object-position: top center;" alt="Hoodies">
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
+                </div>
+                <!-- Slide 5: Graphic Tees -->
+                <div class="w-1/6 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
+                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/black%20designed%20teeshirt%20front.jpg" class="absolute inset-0 w-full h-full object-cover" style="object-position: top center;" alt="Graphic Tees">
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
+                </div>
+                <!-- Slide 6: Casual Shirt -->
+                <div class="w-1/6 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
+                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/pink%20shirt%20front.jpg" class="absolute inset-0 w-full h-full object-cover" style="object-position: top center;" alt="Casual Shirt Collection">
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
+                </div>
+            </div>
+
+            <!-- Static Content Overlay -->
+            <div class="absolute inset-0 z-10 flex items-center px-6 md:px-16 pointer-events-none">
+                <div class="max-w-2xl pointer-events-auto mt-20">
+                    <span class="text-sky-400 font-bold tracking-widest uppercase text-sm mb-4 block">New Season Arrival</span>
+                    <h1 class="font-serif text-5xl md:text-8xl mb-6 leading-tight drop-shadow-lg">Define Your <br><span class="italic text-sky-400">Original</span> Style.</h1>
+                    <p class="text-slate-300 text-lg md:text-xl mb-8 max-w-lg drop-shadow-md">Sustainable, high-quality essentials designed for the modern individual.</p>
+                    <a href="#collection" class="inline-block bg-sky-500 hover:bg-sky-600 text-white px-10 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-xl shadow-sky-500/20">Explore Collection</a>
+                </div>
+            </div>
+
+            <!-- Hero Touch Arrows (Visible on Mobile & Hover) -->
+            <button onclick="prevHeroSlide(); stopHeroAutoPlay();" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all active:scale-95 opacity-100 md:opacity-0 md:group-hover:opacity-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <button onclick="nextHeroSlide(); stopHeroAutoPlay();" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all active:scale-95 opacity-100 md:opacity-0 md:group-hover:opacity-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+            </button>
+
+            <!-- Slider Navigation Dots (6 Ticks) -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
+                <button onclick="goToHeroSlide(0)" class="w-3 h-3 rounded-full bg-white transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
+                <button onclick="goToHeroSlide(1)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
+                <button onclick="goToHeroSlide(2)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
+                <button onclick="goToHeroSlide(3)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
+                <button onclick="goToHeroSlide(4)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
+                <button onclick="goToHeroSlide(5)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
             </div>
         </section>
 
@@ -1466,12 +1462,27 @@ ${itemDetails}
             document.body.style.overflow = 'hidden'; 
         }
 
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(dir) {
+            const p = products.find(i => i.id === currentLightboxProductId);
+            currentLightboxImageIndex = (currentLightboxImageIndex + dir + p.images.length) % p.images.length;
+            document.getElementById('lightbox-img').src = p.images[currentLightboxImageIndex];
+        }
+
         document.addEventListener('DOMContentLoaded', () => { 
             loadCart(); // Load saved cart
             renderProducts(); 
             startHeroAutoPlay(); // Start Hero Slider
             document.addEventListener('keydown', (e) => { 
                 if (e.key === 'Escape') { closeLightbox(); closeModal(); } 
+                if (!document.getElementById('lightbox').classList.contains('hidden')) {
+                    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                    if (e.key === 'ArrowRight') navigateLightbox(1);
+                }
             }); 
         });
     </script>

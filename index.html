@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <!-- PayPal SDK (Production Configuration) -->
+    <script src="https://www.paypal.com/sdk/js?client-id=BAA2OxgpG4aBowcYvWhwIfPyzAJ--xb3s7sJ9iufXLmWSRAaGYZo9IztEDAZlKNgjvO3Up3pbXBHrGVbLQ&currency=USD&enable-funding=venmo"></script>
     <style>
         :root {
             --primary: #0ea5e9;
@@ -212,14 +214,72 @@
     <div id="view-shop" class="view-transition">
         <section class="pt-32 pb-16 px-4">
             <div class="container mx-auto">
-                <div class="relative rounded-3xl overflow-hidden h-[400px] md:h-[500px] flex items-center">
-                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=2070" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Hero Background">
-                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950 to-transparent"></div>
-                    <div class="relative z-10 px-6 md:px-16 max-w-2xl">
-                        <span class="text-sky-400 font-bold tracking-widest uppercase text-sm mb-4 block">New Season Arrival</span>
-                        <h1 class="font-serif text-4xl md:text-7xl mb-6 leading-tight">Define Your <br><span class="italic text-sky-400">Original</span> Style.</h1>
-                        <p class="text-slate-300 text-base md:text-lg mb-8 max-w-md">Sustainable, high-quality essentials designed for the modern individual.</p>
-                        <a href="#collection" class="inline-block bg-sky-500 hover:bg-sky-600 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-xl shadow-sky-500/20">Explore Collection</a>
+                <div class="relative rounded-3xl overflow-hidden h-[400px] md:h-[500px] flex items-center group"
+                     onmouseenter="stopHeroAutoPlay()"
+                     onmouseleave="startHeroAutoPlay()"
+                     ontouchstart="handleHeroTouchStart(event)"
+                     ontouchend="handleHeroTouchEnd(event)">
+                    
+                    <!-- Hero Slider Track (600% width for 6 slides) -->
+                    <div id="hero-track" class="flex w-[600%] h-full transition-transform duration-700 ease-in-out">
+                        <!-- Slide 1: Kits -->
+                        <div class="w-1/6 h-full relative cursor-pointer" onclick="navigate('shop')">
+                            <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20kits.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Essentials Kit">
+                            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 to-transparent"></div>
+                        </div>
+                        <!-- Slide 2: Sweatpants -->
+                        <div class="w-1/6 h-full relative cursor-pointer" onclick="navigate('shop')">
+                            <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20sweatpants.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Sweatpants Collection">
+                            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 to-transparent"></div>
+                        </div>
+                        <!-- Slide 3: Tees -->
+                        <div class="w-1/6 h-full relative cursor-pointer" onclick="navigate('shop')">
+                            <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20teeshirts.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Tee Collection">
+                            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 to-transparent"></div>
+                        </div>
+                        <!-- Slide 4: Hoodies -->
+                        <div class="w-1/6 h-full relative cursor-pointer" onclick="navigate('shop')">
+                            <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/grey%20hoodie%20front.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" style="object-position: top center;" alt="Hoodies">
+                            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 to-transparent"></div>
+                        </div>
+                        <!-- Slide 5: Graphic Tees -->
+                        <div class="w-1/6 h-full relative cursor-pointer" onclick="navigate('shop')">
+                            <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/black%20designed%20teeshirt%20front.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" style="object-position: top center;" alt="Graphic Tees">
+                            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 to-transparent"></div>
+                        </div>
+                        <!-- Slide 6: Headwear -->
+                        <div class="w-1/6 h-full relative cursor-pointer" onclick="navigate('shop')">
+                            <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/green%20hat%20front.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" style="object-position: top center;" alt="Signature Headwear">
+                            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 to-transparent"></div>
+                        </div>
+                    </div>
+
+                    <!-- Static Content Overlay -->
+                    <div class="absolute inset-0 z-10 flex items-center px-6 md:px-16 pointer-events-none">
+                        <div class="max-w-2xl pointer-events-auto">
+                            <span class="text-sky-400 font-bold tracking-widest uppercase text-sm mb-4 block">New Season Arrival</span>
+                            <h1 class="font-serif text-4xl md:text-7xl mb-6 leading-tight">Define Your <br><span class="italic text-sky-400">Original</span> Style.</h1>
+                            <p class="text-slate-300 text-base md:text-lg mb-8 max-w-md">Sustainable, high-quality essentials designed for the modern individual.</p>
+                            <a href="#collection" class="inline-block bg-sky-500 hover:bg-sky-600 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-xl shadow-sky-500/20">Explore Collection</a>
+                        </div>
+                    </div>
+
+                    <!-- Hero Touch Arrows (Visible on Mobile & Hover) -->
+                    <button onclick="prevHeroSlide(); stopHeroAutoPlay();" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all active:scale-95 opacity-100 md:opacity-0 md:group-hover:opacity-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button onclick="nextHeroSlide(); stopHeroAutoPlay();" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all active:scale-95 opacity-100 md:opacity-0 md:group-hover:opacity-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </button>
+
+                    <!-- Slider Navigation Dots (6 Ticks) -->
+                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
+                        <button onclick="goToHeroSlide(0)" class="w-3 h-3 rounded-full bg-white transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
+                        <button onclick="goToHeroSlide(1)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
+                        <button onclick="goToHeroSlide(2)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
+                        <button onclick="goToHeroSlide(3)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
+                        <button onclick="goToHeroSlide(4)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
+                        <button onclick="goToHeroSlide(5)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
                     </div>
                 </div>
             </div>
@@ -409,6 +469,9 @@
                                 Payment Method
                             </h3>
                             <div class="space-y-6">
+                                <!-- PayPal Button Container -->
+                                <div id="paypal-button-container" class="w-full mb-4 relative z-10 min-h-[150px]"></div>
+
                                 <div>
                                     <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Card Number</label>
                                     <div class="relative">
@@ -445,7 +508,7 @@
                             <div class="flex justify-between items-center mb-8 pt-4 border-t border-slate-700">
                                 <span class="font-bold text-lg">Total</span><span id="checkout-total" class="text-3xl font-bold text-sky-400">$0.00</span>
                             </div>
-                            <button onclick="handlePlaceOrder()" class="w-full bg-sky-500 hover:bg-sky-600 text-white py-4 rounded-xl font-bold shadow-lg shadow-sky-500/20 active:scale-95 transition-all">
+                            <button onclick="handleCreditCardCheckout()" class="w-full bg-sky-500 hover:bg-sky-600 text-white py-4 rounded-xl font-bold shadow-lg shadow-sky-500/20 active:scale-95 transition-all">
                                 Complete Purchase
                             </button>
                             <p class="text-center text-[10px] text-slate-500 mt-4 uppercase tracking-widest font-bold">Secure SSL Encrypted Checkout</p>
@@ -493,6 +556,15 @@
     </footer>
 
     <script>
+        function showNotification(msg, type = 'success') {
+            const c = document.getElementById('toast-container');
+            const t = document.createElement('div');
+            t.className = `${type === 'success' ? 'bg-emerald-500' : 'bg-rose-500'} text-white px-6 py-4 rounded-xl shadow-2xl flex items-center space-x-3 toast-animate pointer-events-auto`;
+            t.innerHTML = `<span class="font-bold text-sm">${msg}</span>`;
+            c.appendChild(t);
+            setTimeout(() => { t.classList.add('opacity-0', 'translate-x-12'); t.style.transition = 'all 0.5s ease'; setTimeout(() => t.remove(), 500); }, 3000);
+        }
+
         let cart = [];
         let currentLightboxProductId = null;
         let currentLightboxImageIndex = 0;
@@ -503,17 +575,20 @@
         let touchStartX = 0;
         let touchEndX = 0;
 
+        // Hero Slider Variables
+        let currentHeroSlide = 0;
+        let heroInterval;
+        let heroTouchStartX = 0;
+        let heroTouchEndX = 0;
+        let heroDirection = 1; // 1 = forward, -1 = backward
+
         // CONFIGURATION: Your GitHub Image Path
-        // This points to the specific commit and 'Websites Images' folder you provided.
-        // Ensure your images in this folder match the product names (e.g., "Heritage Tee 1.jpg")
         const githubBaseUrl = "https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/";
         
         // Helper to generate image URLs with a fallback placeholder
-        // It tries to find: "Heritage Tee 1.jpg", "Heritage Tee 2.jpg", etc.
         const getImagesForProduct = (productName) => {
             return Array.from({length: 5}, (_, i) => {
                 const fileName = `${productName} ${i + 1}.jpg`; 
-                // Note: If your files are png, change .jpg to .png above
                 return `${githubBaseUrl}${encodeURIComponent(fileName)}`;
             });
         };
@@ -530,7 +605,6 @@
                     {id: 'pnk', name: 'Pink', hex: '#ec4899'},
                     {id: 'red', name: 'Red', hex: '#ef4444'}
                 ],
-                // Manual image list ensuring front images are first
                 manualImages: [
                     'black teeshirt front.jpg',
                     'white teeshirt front.jpg',
@@ -702,7 +776,6 @@
             }
         ];
 
-        // Assign images using the manual list if available, otherwise use the helper
         products.forEach(p => {
             if (p.manualImages) {
                 p.images = p.manualImages.map(filename => githubBaseUrl + encodeURIComponent(filename));
@@ -715,10 +788,9 @@
             const menu = document.getElementById('mobile-menu');
             if (menu.classList.contains('open')) {
                 menu.classList.remove('open');
-                setTimeout(() => menu.style.display = 'none', 300); // Wait for transition
+                setTimeout(() => menu.style.display = 'none', 300);
             } else {
                 menu.style.display = 'block';
-                // Small delay to allow display:block to apply before adding class for transition
                 setTimeout(() => menu.classList.add('open'), 10);
             }
         }
@@ -736,9 +808,11 @@
             if(navBtn) navBtn.classList.add('text-sky-400', 'border-b-2', 'border-sky-400');
             
             if(view === 'cart') updateCartUI();
-            if(view === 'checkout') updateCheckoutTotal();
+            if(view === 'checkout') {
+                updateCheckoutTotal();
+                initPayPalButtons(); // Initialize buttons when entering checkout
+            }
             
-            // Auto scroll logic for categories
             if (view === 'shop' && activeCategory !== 'all') {
                 setTimeout(() => {
                     const collectionSection = document.getElementById('collection');
@@ -756,7 +830,6 @@
         function toggleSearchBar() {
             const container = document.getElementById('search-container');
             const input = document.getElementById('search-input');
-            
             if (container.classList.contains('search-hidden')) {
                 container.classList.remove('search-hidden');
                 container.classList.add('search-visible');
@@ -793,22 +866,17 @@
 
         function handleSearch(query) {
             searchQuery = query.toLowerCase();
-            
-            // Automatically switch to shop view if searching from another tab
             if (searchQuery.length > 0 && document.getElementById('view-shop').classList.contains('hidden')) {
                 navigate('shop');
             }
-
-            filterCategory(activeCategory, true); // Preserve category, just re-render
+            filterCategory(activeCategory, true);
         }
 
         function filterCategory(category, isSearch = false) {
             if (!isSearch) {
                 activeCategory = category;
                 navigate('shop');
-                // Scroll logic is handled inside navigate()
             }
-
             const title = document.getElementById('collection-title');
             const subtitle = document.getElementById('collection-subtitle');
             
@@ -825,7 +893,6 @@
                 btn.classList.remove('bg-sky-500', 'border-sky-500');
                 if (btn.dataset.category === category) btn.classList.add('bg-sky-500', 'border-sky-500');
             });
-
             renderProducts();
         }
 
@@ -834,10 +901,7 @@
             const noResults = document.getElementById('no-results');
             
             let filtered = activeCategory === 'all' ? products : products.filter(p => p.category === activeCategory);
-            
-            if (searchQuery) {
-                filtered = filtered.filter(p => p.name.toLowerCase().includes(searchQuery));
-            }
+            if (searchQuery) filtered = filtered.filter(p => p.name.toLowerCase().includes(searchQuery));
 
             if (filtered.length === 0) {
                 grid.innerHTML = '';
@@ -848,21 +912,19 @@
             }
 
             grid.innerHTML = filtered.map(product => {
-                // Calculate widths for robust scrolling
                 const trackWidth = product.images.length * 100;
                 const imgWidth = 100 / product.images.length;
+                const isHeadwear = product.id === 106 || product.id === 109;
+                const sizes = isHeadwear ? ['One Size Fits All'] : ['S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL'];
                 
                 return `
                 <div class="product-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700/50 flex flex-col group">
                     <div class="relative aspect-[3/4] overflow-hidden" 
                          ontouchstart="handleTouchStart(event)" 
                          ontouchend="handleTouchEnd(event)">
-                        <!-- Product ID Indicator -->
                         <div class="absolute top-3 left-3 z-20 bg-black/60 backdrop-blur-md text-white text-[10px] font-mono px-2 py-1 rounded border border-white/10 pointer-events-none">
                             ID: ${product.id}
                         </div>
-
-                        <!-- Image Track with Explicit Width -->
                         <div class="image-track flex h-full" data-index="0" style="width: ${trackWidth}%;">
                             ${product.images.map((img, idx) => `
                                 <div class="h-full relative overflow-hidden" style="width: ${imgWidth}%;">
@@ -873,24 +935,35 @@
                                 </div>
                             `).join('')}
                         </div>
-                        
                         <div class="absolute inset-x-0 bottom-4 flex justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity z-10">
                             <button onclick="changeImage(this, -1)" class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/40 shadow-lg border border-white/10"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
                             <button onclick="changeImage(this, 1)" class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/40 shadow-lg border border-white/10"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
+                        </div>
+                        <!-- Center-aligned Touch Arrows -->
+                        <div class="absolute inset-y-0 left-0 right-0 flex justify-between items-center px-2 z-10 pointer-events-none">
+                            <button onclick="changeImage(this, -1)" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center hover:bg-black/50 text-white transition-all shadow-md pointer-events-auto opacity-100 md:opacity-0 md:group-hover:opacity-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                            </button>
+                            <button onclick="changeImage(this, 1)" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center hover:bg-black/50 text-white transition-all shadow-md pointer-events-auto opacity-100 md:opacity-0 md:group-hover:opacity-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                            </button>
                         </div>
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
                         <div class="mb-3">
                             <input type="text" placeholder="Enter Product Name" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm font-semibold">
                         </div>
-                        
                         <p class="text-sky-400 font-semibold mb-4">$${product.price.toFixed(2)}</p>
                         <div class="space-y-4 mb-6">
                             <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Size</p>
                                 <div class="flex gap-2 text-xs flex-wrap">
-                                    ${['S', 'M', 'L', 'XL', 'XXL', '3XL'].map(size => `
-                                        <div class="size-btn"><input type="radio" name="size-${product.id}" id="s-${product.id}-${size}" value="${size}" class="hidden">
-                                        <label for="s-${product.id}-${size}" class="w-10 h-10 rounded-lg border border-slate-700 flex items-center justify-center font-bold cursor-pointer hover:border-sky-500">${size}</label></div>`).join('')}
+                                    ${sizes.map(size => `
+                                        <div class="size-btn">
+                                            <input type="radio" name="size-${product.id}" id="s-${product.id}-${size}" value="${size}" class="hidden">
+                                            <label for="s-${product.id}-${size}" class="h-10 px-3 min-w-[2.5rem] rounded-lg border border-slate-700 flex items-center justify-center font-bold cursor-pointer hover:border-sky-500 text-xs whitespace-nowrap transition-colors">
+                                                ${size}
+                                            </label>
+                                        </div>`).join('')}
                                 </div>
                             </div>
                             <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Color</p>
@@ -914,43 +987,24 @@
             `}).join('');
         }
 
-        // New function to handle color selection and update image
         function handleColorSelect(input, pid, colorName) {
             const p = products.find(i => i.id === pid);
             if(!p) return;
-            
-            // Heuristic: Extract the main color word (e.g., "Green Cap" -> "green")
-            // and look for it in the image filenames
             const mainColor = colorName.toLowerCase().split(' ')[0];
-
-            // Find the first image that contains the color name
             const idx = p.images.findIndex(img => img.toLowerCase().includes(mainColor));
-            
             if (idx !== -1) {
                 const card = input.closest('.product-card');
                 const track = card.querySelector('.image-track');
-                
-                // Update track position
                 const total = track.children.length;
                 track.dataset.index = idx;
                 track.style.transform = `translateX(-${idx * (100 / total)}%)`;
             }
         }
 
-        // Updated logic: Translation is relative to the TRACK width (which is N * 100%)
-        // So moving one slide (1/Nth of track) is (100 / N)% of the track width.
         function changeImage(btn, dir) {
             event.stopPropagation();
             const tr = btn.closest('.relative').querySelector('.image-track');
-            const total = tr.children.length; // Number of images
-            let idx = parseInt(tr.dataset.index);
-            
-            idx = (idx + dir + total) % total;
-            tr.dataset.index = idx;
-            
-            // Percentage to move: idx * (100% / total images)
-            // Example: 2 images. Track is 200%. Slide 0 = 0%. Slide 1 = 50% (of 200%).
-            tr.style.transform = `translateX(-${idx * (100 / total)}%)`;
+            changeImageByTrack(tr, dir);
         }
 
         function addToCart(pid) {
@@ -966,7 +1020,6 @@
         function removeFromCart(id) {
             cart = cart.filter(i => i.cartId !== id);
             updateCartUI();
-            // Update checkout UI if currently viewing checkout
             if (!document.getElementById('view-checkout').classList.contains('hidden')) {
                 updateCheckoutTotal();
             }
@@ -1006,24 +1059,16 @@
             const taxElem = document.getElementById('checkout-tax');
             const shipElem = document.getElementById('checkout-shipping');
             const totElem = document.getElementById('checkout-total');
-            
-            // Subtotal
             let subtotal = cart.reduce((acc, item) => acc + item.price, 0);
-            
-            // Shipping
             let shipping = 20.00;
             const shipMethod = document.querySelector('input[name="shipping"]:checked');
             if (shipMethod && shipMethod.value === 'express') {
                 shipping = 60.00;
             }
             if (subtotal > 100 && (!shipMethod || shipMethod.value === 'standard')) {
-                shipping = 0; // Free standard shipping over $100
+                shipping = 0; 
             }
-
-            // Tax (Always Missouri Rate)
             let tax = subtotal * 0.04225;
-
-            // Render List
             list.innerHTML = cart.map(i => `
                 <div class="flex items-center space-x-4">
                     <img src="${i.images[0]}" class="w-12 h-14 object-cover rounded-lg border border-slate-700" onerror="this.src='https://placehold.co/600x800/1e293b/ffffff?text=${encodeURIComponent(i.name)}'">
@@ -1038,16 +1083,113 @@
                         </button>
                     </div>
                 </div>`).join('');
-
-            // Render Values
             subElem.innerText = `$${subtotal.toFixed(2)}`;
             taxElem.innerText = `$${tax.toFixed(2)}`;
             shipElem.innerText = shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`;
             totElem.innerText = `$${(subtotal + tax + shipping).toFixed(2)}`;
         }
 
-        function handlePlaceOrder() {
-            openModal('emerald-500', 'Order Confirmed!', 'Thank you for your purchase. We have sent a confirmation email to you.', '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />');
+        // Initialize PayPal Button
+        function initPayPalButtons() {
+            const container = document.getElementById('paypal-button-container');
+            if (!container) return;
+
+            if (container.innerHTML.includes('iframe')) return; // Already rendered
+
+            // Check if PayPal SDK is loaded
+            if (typeof paypal === 'undefined') {
+                container.innerHTML = '<p class="text-white text-center text-sm animate-pulse">Connecting to PayPal...</p>';
+                setTimeout(initPayPalButtons, 1000); 
+                return;
+            }
+
+            container.innerHTML = ''; // Clear previous buttons
+            
+            try {
+                paypal.Buttons({
+                    style: {
+                        layout: 'vertical',
+                        color:  'gold',
+                        shape:  'rect',
+                        label:  'paypal'
+                    },
+                    createOrder: function(data, actions) {
+                        // Calculate total dynamically based on cart state at click time
+                        let subtotal = cart.reduce((acc, item) => acc + item.price, 0);
+                        let shipping = 20.00;
+                        const shipMethod = document.querySelector('input[name="shipping"]:checked');
+                        if (shipMethod && shipMethod.value === 'express') {
+                            shipping = 60.00;
+                        }
+                        if (subtotal > 100 && (!shipMethod || shipMethod.value === 'standard')) {
+                            shipping = 0; 
+                        }
+                        let tax = subtotal * 0.04225;
+                        let total = (subtotal + tax + shipping).toFixed(2);
+
+                        return actions.order.create({
+                            purchase_units: [{
+                                description: "Originals Clothing Co Order",
+                                amount: {
+                                    value: total
+                                }
+                            }]
+                        });
+                    },
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(details) {
+                            // Only call success handler after PayPal returns success
+                            handlePlaceOrder('PayPal');
+                        });
+                    },
+                    onError: function(err) {
+                        console.error('PayPal Error:', err);
+                        container.innerHTML = '<p class="text-rose-400 text-sm text-center">Unable to load PayPal checkout. Please try the credit card option.</p>';
+                    }
+                })
+                .render('#paypal-button-container')
+                .catch(err => {
+                    console.error('PayPal Render Error:', err);
+                    container.innerHTML = '<p class="text-rose-400 text-sm text-center">Payment System Error.</p>';
+                });
+            } catch (error) {
+                console.error("Failed to setup PayPal:", error);
+                container.innerHTML = '<p class="text-rose-400 text-sm text-center">Payment System Configuration Error.</p>';
+            }
+        }
+
+        function renderFallbackButton(container) {
+            // Deprecated: Removed simulation mode to ensure real buttons are prioritized.
+            container.innerHTML = '<p class="text-slate-400 text-sm text-center">Loading secure payment...</p>';
+        }
+
+        // New function to validate Credit Card before "Completing Purchase"
+        function handleCreditCardCheckout() {
+            // Simple validation to ensure user isn't just clicking the button without paying
+            const cardNum = document.querySelector('input[placeholder="0000 0000 0000 0000"]').value;
+            const expiry = document.querySelector('input[placeholder="MM/YY"]').value;
+            const cvv = document.querySelector('input[placeholder="123"]').value;
+
+            if (!cardNum || !expiry || !cvv) {
+                openModal('rose-500', 'Payment Required', 'Please enter your credit card details or use the PayPal buttons to complete your transaction.', '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />');
+                return;
+            }
+
+            // Simulate processing
+            const btn = document.querySelector('button[onclick="handleCreditCardCheckout()"]');
+            const originalText = btn.innerText;
+            btn.innerText = "Processing...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                handlePlaceOrder('Credit Card');
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }, 1500);
+        }
+
+        function handlePlaceOrder(method = 'Credit Card') {
+            openModal('emerald-500', 'Order Confirmed!', `Thank you for your purchase via ${method}. We have sent a confirmation email to you.`, '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />');
             cart = [];
             updateCartUI();
             setTimeout(() => navigate('shop'), 3000);
@@ -1109,21 +1251,92 @@
             setTimeout(() => m.classList.add('hidden'), 300);
         }
 
-        function changeImage(btn, dir) { event.stopPropagation(); const tr = btn.closest('.relative').querySelector('.image-track'); const total = tr.children.length; let idx = (parseInt(tr.dataset.index) + dir + total) % total; tr.dataset.index = idx; tr.style.transform = `translateX(-${idx * (100 / total)}%)`; }
-        function openLightbox(pid, idx) { currentLightboxProductId = pid; currentLightboxImageIndex = idx; const p = products.find(i => i.id === pid); const img = document.getElementById('lightbox-img'); img.src = p.images[idx]; document.getElementById('lightbox').classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
-        function closeLightbox() { document.getElementById('lightbox').classList.add('hidden'); document.body.style.overflow = 'auto'; }
-        function navigateLightbox(dir) { const p = products.find(i => i.id === currentLightboxProductId); currentLightboxImageIndex = (currentLightboxImageIndex + dir + p.images.length) % p.images.length; const img = document.getElementById('lightbox-img'); img.style.opacity = '0'; setTimeout(() => { img.src = p.images[currentLightboxImageIndex]; img.style.opacity = '1'; }, 150); }
-
-        function showNotification(msg, type = 'success') {
-            const c = document.getElementById('toast-container');
-            const t = document.createElement('div');
-            t.className = `${type === 'success' ? 'bg-emerald-500' : 'bg-rose-500'} text-white px-6 py-4 rounded-xl shadow-2xl flex items-center space-x-3 toast-animate pointer-events-auto`;
-            t.innerHTML = `<span class="font-bold text-sm">${msg}</span>`;
-            c.appendChild(t);
-            setTimeout(() => { t.classList.add('opacity-0', 'translate-x-12'); t.style.transition = 'all 0.5s ease'; setTimeout(() => t.remove(), 500); }, 3000);
+        // --- Hero Slider Logic (Ping-Pong 6 Slides) ---
+        
+        function goToHeroSlide(index) {
+            currentHeroSlide = index;
+            const track = document.getElementById('hero-track');
+            const dots = document.querySelectorAll('.hero-dot');
+            
+            // Move track: 100% / 6 slides = 16.666% width per slide relative to track
+            track.style.transform = `translateX(-${index * (100 / 6)}%)`; 
+            
+            // Update dots
+            dots.forEach((dot, idx) => {
+                if (idx === index) {
+                    dot.classList.remove('bg-white/40');
+                    dot.classList.add('bg-white');
+                } else {
+                    dot.classList.add('bg-white/40');
+                    dot.classList.remove('bg-white');
+                }
+            });
         }
 
-        // --- Touch & Swipe Logic ---
+        function autoPlayHero() {
+            // Check direction logic
+            if (currentHeroSlide >= 5) {
+                heroDirection = -1; // Reverse at end
+            } else if (currentHeroSlide <= 0) {
+                heroDirection = 1; // Forward at start
+            }
+            
+            currentHeroSlide += heroDirection;
+            goToHeroSlide(currentHeroSlide);
+        }
+
+        function nextHeroSlide() {
+            // Manual next (loops back to 0 if at end for user convenience)
+            let next = currentHeroSlide + 1;
+            if (next > 5) next = 0;
+            goToHeroSlide(next);
+            // Reset direction to forward if user clicks next manually
+            heroDirection = 1;
+        }
+
+        function prevHeroSlide() {
+            // Manual prev (loops to 5 if at start)
+            let prev = currentHeroSlide - 1;
+            if (prev < 0) prev = 5;
+            goToHeroSlide(prev);
+            // Reset direction to backward if user clicks prev manually
+            heroDirection = -1;
+        }
+
+        function startHeroAutoPlay() {
+            stopHeroAutoPlay(); // clear existing
+            heroInterval = setInterval(autoPlayHero, 5000);
+        }
+
+        function stopHeroAutoPlay() {
+            if (heroInterval) clearInterval(heroInterval);
+        }
+
+        // Hero Touch Handling
+        function handleHeroTouchStart(e) {
+            heroTouchStartX = e.changedTouches[0].screenX;
+            stopHeroAutoPlay();
+        }
+
+        function handleHeroTouchEnd(e) {
+            heroTouchEndX = e.changedTouches[0].screenX;
+            handleHeroSwipe();
+            startHeroAutoPlay();
+        }
+
+        function handleHeroSwipe() {
+            const threshold = 50;
+            if (heroTouchEndX < heroTouchStartX - threshold) {
+                // Swipe Left -> Next
+                nextHeroSlide();
+            }
+            if (heroTouchEndX > heroTouchStartX + threshold) {
+                // Swipe Right -> Prev
+                prevHeroSlide();
+            }
+        }
+
+        // --- Product Touch & Swipe Logic ---
 
         function handleTouchStart(e) {
             touchStartX = e.changedTouches[0].screenX;
@@ -1136,14 +1349,11 @@
 
         function handleSwipe(track) {
             if (!track) return;
-            const threshold = 50; // Minimum distance for a swipe
-            
+            const threshold = 50; 
             if (touchEndX < touchStartX - threshold) {
-                // Swiped Left -> Next Image
                 changeImageByTrack(track, 1);
             }
             if (touchEndX > touchStartX + threshold) {
-                // Swiped Right -> Previous Image
                 changeImageByTrack(track, -1);
             }
         }
@@ -1151,26 +1361,13 @@
         function changeImageByTrack(tr, dir) {
             const total = tr.children.length; 
             let idx = parseInt(tr.dataset.index);
-            
             idx = (idx + dir + total) % total;
             tr.dataset.index = idx;
-            
-            // Logic must match renderProducts width calculations:
-            // Moving 1 slide = (100 / total)% of the track width
             tr.style.transform = `translateX(-${idx * (100 / total)}%)`;
         }
 
-        // Updated original changeImage to use the shared logic
-        function changeImage(btn, dir) {
-            event.stopPropagation();
-            const tr = btn.closest('.relative').querySelector('.image-track');
-            changeImageByTrack(tr, dir);
-        }
-
         function openLightbox(pid, idx) { 
-            // Prevent lightbox if it was a swipe (allow small variance for tap)
             if (Math.abs(touchEndX - touchStartX) > 10) return;
-
             currentLightboxProductId = pid; 
             currentLightboxImageIndex = idx; 
             const p = products.find(i => i.id === pid); 
@@ -1180,7 +1377,13 @@
             document.body.style.overflow = 'hidden'; 
         }
 
-        document.addEventListener('DOMContentLoaded', () => { renderProducts(); document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeLightbox(); closeModal(); } }); });
+        document.addEventListener('DOMContentLoaded', () => { 
+            renderProducts(); 
+            startHeroAutoPlay(); // Start Hero Slider
+            document.addEventListener('keydown', (e) => { 
+                if (e.key === 'Escape') { closeLightbox(); closeModal(); } 
+            }); 
+        });
     </script>
 </body>
 </html>

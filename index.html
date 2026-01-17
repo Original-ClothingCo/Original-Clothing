@@ -516,6 +516,21 @@
         let activeCategory = 'all';
         let searchQuery = '';
 
+        // CONFIGURATION: Your GitHub Image Path
+        // This points to the specific commit you provided. 
+        // Ensure your images in the 'images' folder match the product names (e.g., "Heritage Tee 1.jpg")
+        const githubBaseUrl = "https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/195bd126e1a39fd0fd7664c469b322ec0aba7668/images/";
+        
+        // Helper to generate image URLs with a fallback placeholder
+        // It tries to find: "Heritage Tee 1.jpg", "Heritage Tee 2.jpg", etc.
+        const getImagesForProduct = (productName) => {
+            return Array.from({length: 5}, (_, i) => {
+                const fileName = `${productName} ${i + 1}.jpg`; 
+                // Note: If your files are png, change .jpg to .png above
+                return `${githubBaseUrl}${encodeURIComponent(fileName)}`;
+            });
+        };
+
         const products = [
             // MEN (8 Items, 4 Colors each)
             { id: 1, category: 'men', name: 'Heritage Tee', price: 28.00, colors: [
@@ -620,9 +635,9 @@
             ] }
         ];
 
-        // Generate 5 numbered slides for each product
+        // Assign images using the helper
         products.forEach(p => {
-            p.images = Array.from({length: 5}, (_, i) => `https://placehold.co/600x800/1e293b/ffffff?text=${i+1}`);
+            p.images = getImagesForProduct(p.name);
         });
 
         function toggleMobileMenu() {
@@ -765,7 +780,7 @@
                 <div class="product-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700/50 flex flex-col group">
                     <div class="relative aspect-[3/4] overflow-hidden">
                         <div class="image-track flex h-full" data-index="0">
-                            ${product.images.map((img, idx) => `<img src="${img}" onclick="openLightbox(${product.id}, ${idx})" class="w-full h-full object-cover flex-shrink-0 cursor-zoom-in">`).join('')}
+                            ${product.images.map((img, idx) => `<img src="${img}" onerror="this.onerror=null;this.src='https://placehold.co/600x800/1e293b/ffffff?text=${encodeURIComponent('Product ' + product.id)}+${idx+1}'" onclick="openLightbox(${product.id}, ${idx})" class="w-full h-full object-cover flex-shrink-0 cursor-zoom-in">`).join('')}
                         </div>
                         <div class="absolute inset-x-0 bottom-4 flex justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity">
                             <button onclick="changeImage(this, -1)" class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/40"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
@@ -773,7 +788,11 @@
                         </div>
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <h3 class="font-bold text-lg mb-1">${product.name}</h3>
+                        <!-- Replaced name with blank input box -->
+                        <div class="mb-3">
+                            <input type="text" placeholder="Enter Product Name" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm font-semibold">
+                        </div>
+                        
                         <p class="text-sky-400 font-semibold mb-4">$${product.price.toFixed(2)}</p>
                         <div class="space-y-4 mb-6">
                             <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Size</p>
@@ -846,7 +865,7 @@
                 total += i.price;
                 return `
                     <div class="flex items-center space-x-6 bg-slate-800/40 p-5 rounded-3xl border border-slate-700/50">
-                        <img src="${i.images[0]}" class="w-24 h-28 object-cover rounded-2xl">
+                        <img src="${i.images[0]}" class="w-24 h-28 object-cover rounded-2xl" onerror="this.src='https://placehold.co/600x800/1e293b/ffffff?text=${encodeURIComponent(i.name)}'">
                         <div class="flex-grow">
                             <h4 class="font-bold text-lg text-white">${i.name}</h4>
                             <p class="text-sm text-slate-400">${i.selColor} • ${i.selSize}</p>
@@ -884,7 +903,7 @@
             // Render List
             list.innerHTML = cart.map(i => `
                 <div class="flex items-center space-x-4">
-                    <img src="${i.images[0]}" class="w-12 h-14 object-cover rounded-lg border border-slate-700">
+                    <img src="${i.images[0]}" class="w-12 h-14 object-cover rounded-lg border border-slate-700" onerror="this.src='https://placehold.co/600x800/1e293b/ffffff?text=${encodeURIComponent(i.name)}'">
                     <div class="flex-grow text-xs">
                         <h5 class="font-bold text-white">${i.name}</h5>
                         <p class="text-slate-400">${i.selSize} • ${i.selColor}</p>

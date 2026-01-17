@@ -476,11 +476,8 @@
                                 Payment Method
                             </h3>
                             <div class="space-y-6">
-                                
                                 <!-- PayPal Container -->
-                                <!-- Added min-height to prevent layout shift when loading -->
                                 <div id="paypal-button-container" class="w-full mb-4 relative z-10 min-h-[150px]"></div>
-
                             </div>
                         </div>
                     </div>
@@ -1193,24 +1190,6 @@
             `;
         }
 
-        function handleCreditCardCheckout() {
-            // Simple validation to ensure user isn't just clicking the button without paying
-            const cardNum = document.querySelector('input[placeholder="0000 0000 0000 0000"]').value;
-            const expiry = document.querySelector('input[placeholder="MM/YY"]').value;
-            const cvv = document.querySelector('input[placeholder="123"]').value;
-
-            if (!cardNum || !expiry || !cvv) {
-                openModal('rose-500', 'Payment Required', 'Please enter your credit card details to complete your transaction.', '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />');
-                return;
-            }
-
-            // Simulate processing
-            const btn = document.querySelector('button[onclick="handleCreditCardCheckout()"]');
-            const originalText = btn.innerText;
-            btn.innerText = "Processing...";
-            btn.disabled = true;
-
-            setTimeout(() => {
         // New function to validate Credit Card before "Completing Purchase"
         function handleCreditCardCheckout() {
             // Since card fields are removed, this button now serves as a prompt to use PayPal

@@ -75,19 +75,6 @@
             will-change: transform;
         }
 
-        /* Desktop Dropdown */
-        .dropdown-menu {
-            display: none;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.2s ease-out;
-        }
-        .group:hover .dropdown-menu {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Mobile Menu Animation */
         #mobile-menu {
             transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -164,10 +151,7 @@
             <!-- Desktop Links -->
             <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest items-center">
                 <a href="javascript:void(0)" onclick="navigate('shop')" id="nav-shop" class="text-sky-400 border-b-2 border-sky-400 pb-1 nav-link">Shop</a>
-                
                 <a href="javascript:void(0)" onclick="filterCategory('adult')" class="hover:text-sky-400 transition-colors nav-link">Adults</a>
-                <!-- Kids Link Removed -->
-
                 <a href="javascript:void(0)" onclick="navigate('about')" id="nav-about" class="hover:text-sky-400 transition-colors nav-link">About</a>
                 <a href="javascript:void(0)" onclick="navigate('contact')" id="nav-contact" class="hover:text-sky-400 transition-colors nav-link">Contact</a>
             </div>
@@ -193,8 +177,6 @@
             <div class="container mx-auto px-4 py-4 space-y-4">
                 <a href="javascript:void(0)" onclick="navigate('shop'); toggleMobileMenu()" class="block text-slate-300 hover:text-white font-medium">Shop All</a>
                 <a href="javascript:void(0)" onclick="filterCategory('adult'); toggleMobileMenu()" class="block text-slate-300 hover:text-white font-medium">Adults</a>
-                <!-- Kids Link Removed -->
-                
                 <div class="border-t border-slate-800 pt-4 space-y-3">
                     <a href="javascript:void(0)" onclick="navigate('about'); toggleMobileMenu()" class="block text-slate-300 hover:text-white">About Us</a>
                     <a href="javascript:void(0)" onclick="navigate('contact'); toggleMobileMenu()" class="block text-slate-300 hover:text-white">Contact</a>
@@ -219,38 +201,31 @@
 
     <!-- SHOP VIEW -->
     <div id="view-shop" class="view-transition">
-        <!-- Modified Hero Section: Reduced height to 70vh and width to 85% for better desktop framing -->
-        <section class="relative w-full h-screen md:h-[70vh] md:w-[85%] md:max-w-[1600px] md:mx-auto md:rounded-3xl md:mt-24 overflow-hidden group border border-slate-700/50 shadow-2xl"
+        <section class="relative w-full h-screen md:h-[70vh] md:w-[85%] md:mx-auto md:rounded-3xl md:mt-24 overflow-hidden group border border-slate-700/50 shadow-2xl"
                  onmouseenter="stopHeroAutoPlay()"
                  onmouseleave="startHeroAutoPlay()"
                  ontouchstart="handleHeroTouchStart(event)"
                  ontouchend="handleHeroTouchEnd(event)">
             
-            <!-- Hero Slider Track (400% width for 4 slides) -->
             <div id="hero-track" class="flex w-[400%] h-full transition-transform duration-700 ease-in-out">
-                <!-- Slide 1: Kits -->
                 <div class="w-1/4 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
                     <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20kits.jpg" class="absolute inset-0 w-full h-full object-cover object-center" alt="Essentials Kit">
                     <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 </div>
-                <!-- Slide 2: Sweatpants -->
                 <div class="w-1/4 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
                     <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20sweatpants.jpg" class="absolute inset-0 w-full h-full object-cover object-center" alt="Sweatpants Collection">
                     <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 </div>
-                <!-- Slide 3: Tees -->
                 <div class="w-1/4 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
                     <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20teeshirts.jpg" class="absolute inset-0 w-full h-full object-cover object-center" alt="Tee Collection">
                     <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 </div>
-                <!-- Slide 4: Hoodies -->
                 <div class="w-1/4 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
                     <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/grey%20hoodie%20front.jpg" class="absolute inset-0 w-full h-full object-cover object-center" alt="Hoodies">
                     <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 </div>
             </div>
 
-            <!-- Static Content Overlay -->
             <div class="absolute inset-0 z-10 flex items-center px-6 md:px-16 pointer-events-none">
                 <div class="max-w-2xl pointer-events-auto">
                     <span class="text-sky-400 font-bold tracking-widest uppercase text-sm mb-4 block">New Season Arrival</span>
@@ -260,7 +235,6 @@
                 </div>
             </div>
 
-            <!-- Hero Touch Arrows (Visible on Mobile & Hover) -->
             <button onclick="prevHeroSlide(); stopHeroAutoPlay();" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all active:scale-95 opacity-100 md:opacity-0 md:group-hover:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
             </button>
@@ -268,7 +242,6 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
             </button>
 
-            <!-- Slider Navigation Dots (Reduced to 4 Ticks) -->
             <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
                 <button onclick="goToHeroSlide(0)" class="w-3 h-3 rounded-full bg-white transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
                 <button onclick="goToHeroSlide(1)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
@@ -286,7 +259,6 @@
                 <div class="flex space-x-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
                     <button onclick="filterCategory('all')" class="cat-filter flex-shrink-0 px-6 py-2 rounded-full bg-slate-800 border border-slate-700 text-sm hover:border-sky-500 transition-colors bg-sky-500 border-sky-500" data-category="all">All</button>
                     <button onclick="filterCategory('adult')" class="cat-filter flex-shrink-0 px-6 py-2 rounded-full bg-slate-800 border border-slate-700 text-sm hover:border-sky-500 transition-colors" data-category="adult">Adult</button>
-                    <!-- Kids Filter Removed -->
                 </div>
             </div>
             <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 text-white"></div>
@@ -302,18 +274,10 @@
         <section class="pt-32 pb-20 px-4">
             <div class="container mx-auto">
                 <div class="bg-slate-800/50 border border-slate-700/50 p-8 md:p-12 rounded-3xl shadow-2xl max-w-4xl mx-auto backdrop-blur-md">
-                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-center mb-6 text-white text-shadow">About Originals</h2>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-center mb-6 text-white">About Originals</h2>
                     <div class="w-24 h-1 bg-sky-500 mx-auto mb-8 rounded-full"></div>
                     <div class="space-y-6 text-lg text-slate-300 leading-relaxed font-light">
-                        <p>
-                            Welcome to <span class="text-white font-semibold italic">Originals Clothing Company</span>, where passion for authentic style and premium quality meets modern design. Founded in the heart of Missouri, our brand is built on the idea that what you wear is a reflection of who you are. We believe in creating more than just clothes; we craft pieces that tell a story and become a part of yours.
-                        </p>
-                        <p>
-                            Our journey started with a simple goal: to produce high-quality apparel that we would be proud to wear ourselves. From the initial sketch to the final stitch, every garment is designed with meticulous attention to detail. We source the finest materials to ensure that our products are not only stylish but also durable and comfortable enough for everyday life.
-                        </p>
-                        <p>
-                            At Originals, we are inspired by the classics but are always looking forward. We are a community of creators, thinkers, and doers who value authenticity above all else. Thank you for being a part of our story.
-                        </p>
+                        <p>Welcome to <span class="text-white font-semibold italic">Originals Clothing Company</span>...</p>
                     </div>
                 </div>
             </div>
@@ -330,17 +294,17 @@
                     <form onsubmit="handleContactSubmit(event)" class="space-y-6">
                         <div>
                             <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Full Name</label>
-                            <input type="text" required class="block w-full px-4 py-3 bg-slate-900 border border-slate-700 text-white rounded-xl focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                            <input type="text" required class="block w-full px-4 py-3 bg-slate-900 border border-slate-700 text-white rounded-xl focus:ring-2 focus:ring-sky-500 outline-none">
                         </div>
                         <div>
                             <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Email</label>
-                            <input type="email" required class="block w-full px-4 py-3 bg-slate-900 border border-slate-700 text-white rounded-xl focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                            <input type="email" required class="block w-full px-4 py-3 bg-slate-900 border border-slate-700 text-white rounded-xl focus:ring-2 focus:ring-sky-500 outline-none">
                         </div>
                         <div>
                             <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Message</label>
-                            <textarea rows="4" required class="block w-full px-4 py-3 bg-slate-900 border border-slate-700 text-white rounded-xl focus:ring-2 focus:ring-sky-500 focus:outline-none"></textarea>
+                            <textarea rows="4" required class="block w-full px-4 py-3 bg-slate-900 border border-slate-700 text-white rounded-xl focus:ring-2 focus:ring-sky-500 outline-none"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-white py-4 rounded-xl font-bold shadow-lg active:scale-95 transition-all">Send Message</button>
+                        <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-white py-4 rounded-xl font-bold transition-all active:scale-95 shadow-lg">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -354,7 +318,6 @@
                 <div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
                     <h2 class="font-serif text-4xl md:text-5xl font-bold text-white">Your Cart</h2>
                     <button onclick="navigate('shop')" class="bg-slate-800 border border-slate-700 text-white py-3 px-8 rounded-xl font-semibold hover:bg-slate-700 transition-all flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
                         <span>Continue Shopping</span>
                     </button>
                 </div>
@@ -366,10 +329,10 @@
                             <button onclick="navigate('shop')" class="bg-sky-500 text-white py-3 px-10 rounded-xl font-bold hover:bg-sky-600">Shop Best Sellers</button>
                         </div>
                     </div>
-                    <div id="cart-summary-card" class="bg-slate-800/50 border border-slate-700/50 p-8 rounded-3xl h-fit sticky top-32 backdrop-blur-md hidden text-white">
+                    <div id="cart-summary-card" class="bg-slate-800/50 border border-slate-700/50 p-8 rounded-3xl h-fit sticky top-32 backdrop-blur-md hidden text-white text-white">
                         <h3 class="font-serif text-2xl font-bold mb-6">Order Summary</h3>
                         <div class="flex justify-between items-center mb-8"><span class="font-bold">Total</span><span id="full-total" class="text-3xl font-bold">$0.00</span></div>
-                        <button onclick="navigate('checkout')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-emerald-500/20 active:scale-95">Proceed to Checkout</button>
+                        <button onclick="navigate('checkout')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-4 rounded-xl font-bold transition-all shadow-lg active:scale-95">Proceed to Checkout</button>
                     </div>
                 </div>
             </div>
@@ -380,18 +343,17 @@
     <div id="view-checkout" class="view-transition hidden opacity-0">
         <section class="pt-32 pb-20 px-4">
             <div class="container mx-auto max-w-6xl">
-                <div class="flex items-center space-x-4 mb-10">
+                <div class="flex items-center space-x-4 mb-10 text-white">
                     <button onclick="navigate('cart')" class="text-slate-400 hover:text-white transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
                     </button>
-                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-white">Checkout</h2>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold">Checkout</h2>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                    <!-- Checkout Form -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 text-white">
                     <div class="lg:col-span-2 space-y-8">
                         <div class="bg-slate-800/50 border border-slate-700/50 p-8 rounded-3xl backdrop-blur-md">
-                            <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                            <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
                                 <span class="w-8 h-8 bg-sky-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
                                 Shipping Information
                             </h3>
@@ -423,9 +385,8 @@
                             </div>
                         </div>
 
-                        <!-- Shipping Method -->
                         <div class="bg-slate-800/50 border border-slate-700/50 p-8 rounded-3xl backdrop-blur-md">
-                            <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                            <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
                                 <span class="w-8 h-8 bg-sky-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
                                 Shipping Method
                             </h3>
@@ -436,11 +397,11 @@
                                         <div class="flex items-center gap-4">
                                             <div class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center radio-circle"></div>
                                             <div>
-                                                <p class="text-white font-bold">Standard Shipping</p>
+                                                <p class="font-bold">Standard Shipping</p>
                                                 <p class="text-sm text-slate-400">5-7 Business Days</p>
                                             </div>
                                         </div>
-                                        <span class="text-white font-bold">$20.00</span>
+                                        <span class="font-bold">$20.00</span>
                                     </div>
                                 </label>
                                 <label class="cursor-pointer block relative">
@@ -449,44 +410,51 @@
                                         <div class="flex items-center gap-4">
                                             <div class="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center radio-circle"></div>
                                             <div>
-                                                <p class="text-white font-bold">Express Shipping</p>
+                                                <p class="font-bold">Express Shipping</p>
                                                 <p class="text-sm text-slate-400">1-2 Business Days</p>
                                             </div>
                                         </div>
-                                        <span class="text-white font-bold">$60.00</span>
+                                        <span class="font-bold">$60.00</span>
                                     </div>
                                 </label>
                             </div>
                         </div>
 
                         <div class="bg-slate-800/50 border border-slate-700/50 p-8 rounded-3xl backdrop-blur-md">
-                            <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                            <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
                                 <span class="w-8 h-8 bg-sky-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
                                 Payment Method
                             </h3>
-                            <div class="space-y-6">
-                                <!-- PayPal Container -->
-                                <div id="paypal-button-container" class="w-full mb-4 relative z-10 min-h-[150px]"></div>
-                            </div>
+                            <div id="paypal-button-container" class="w-full mb-4 relative z-10 min-h-[150px]"></div>
                         </div>
                     </div>
 
-                    <!-- Checkout Summary -->
                     <div class="lg:col-span-1">
-                        <div class="bg-slate-800/50 border border-slate-700/50 p-8 rounded-3xl sticky top-32 backdrop-blur-md text-white">
+                        <div class="bg-slate-800/50 border border-slate-700/50 p-8 rounded-3xl sticky top-32 backdrop-blur-md">
                             <h3 class="font-serif text-2xl font-bold mb-6">Review Order</h3>
-                            <div id="checkout-mini-list" class="max-h-[300px] overflow-y-auto pr-2 space-y-4 mb-6 border-b border-slate-700 pb-6">
-                                <!-- Dynamic Mini List -->
+                            <div id="checkout-mini-list" class="max-h-[300px] overflow-y-auto pr-2 space-y-4 mb-6 border-b border-slate-700 pb-6"></div>
+                            
+                            <!-- Promo Code Section -->
+                            <div class="mb-6">
+                                <label class="block text-[10px] uppercase font-bold text-slate-400 mb-2">Promo Code</label>
+                                <div class="flex flex-col gap-3">
+                                    <input type="text" id="promo-input" placeholder="Enter code" 
+                                           onkeyup="if(event.key==='Enter') applyPromoCode()"
+                                           class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white outline-none focus:border-sky-500 transition-colors uppercase text-sm">
+                                    <button type="button" onclick="applyPromoCode()" class="w-full bg-sky-500 hover:bg-sky-600 py-3 rounded-xl font-bold transition-all text-sm active:scale-95">Apply Promo Code</button>
+                                </div>
+                                <p id="promo-message" class="text-[10px] mt-2 font-bold hidden"></p>
                             </div>
+
                             <div class="space-y-4 text-slate-300 mb-8 text-sm">
                                 <div class="flex justify-between"><span>Subtotal</span><span id="checkout-subtotal">$0.00</span></div>
                                 <div class="flex justify-between text-slate-400"><span>Tax (MO 4.225%)</span><span id="checkout-tax">$0.00</span></div>
-                                <div class="flex justify-between"><span>Shipping</span><span id="checkout-shipping" class="text-emerald-400">$5.99</span></div>
+                                <div class="flex justify-between"><span>Shipping</span><span id="checkout-shipping" class="text-emerald-400">$20.00</span></div>
                             </div>
                             <div class="flex justify-between items-center mb-8 pt-4 border-t border-slate-700">
                                 <span class="font-bold text-lg">Total</span><span id="checkout-total" class="text-3xl font-bold text-sky-400">$0.00</span>
                             </div>
-                            <button onclick="handleCreditCardCheckout()" class="w-full bg-sky-500 hover:bg-sky-600 text-white py-4 rounded-xl font-bold shadow-lg shadow-sky-500/20 active:scale-95 transition-all">
+                            <button onclick="handleCreditCardCheckout()" class="w-full bg-sky-500 hover:bg-sky-600 py-4 rounded-xl font-bold shadow-lg active:scale-95 transition-all">
                                 Complete Purchase
                             </button>
                             <p class="text-center text-[10px] text-slate-500 mt-4 uppercase tracking-widest font-bold">Secure SSL Encrypted Checkout</p>
@@ -508,7 +476,7 @@
     </div>
 
     <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-sky-400 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-sky-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
         <button onclick="navigateLightbox(-1)" class="absolute left-6 top-1/2 -translate-y-1/2 p-4 text-white hover:text-sky-400 bg-white/10 rounded-full backdrop-blur-md"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
         <img id="lightbox-img" src="" class="max-h-[85vh] max-w-full object-contain rounded-lg shadow-2xl transition-opacity duration-300">
         <button onclick="navigateLightbox(1)" class="absolute right-6 top-1/2 -translate-y-1/2 p-4 text-white hover:text-sky-400 bg-white/10 rounded-full backdrop-blur-md"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
@@ -517,12 +485,12 @@
     <div id="toast-container" class="fixed bottom-8 right-8 z-[110] flex flex-col gap-3 pointer-events-none text-white"></div>
 
     <footer class="bg-slate-950 pt-10 pb-6 border-t border-slate-900">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-white">
+        <div class="container mx-auto px-4 text-white">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div class="col-span-1 md:col-span-2">
                     <a href="javascript:void(0)" onclick="navigate('shop')" class="flex items-center space-x-2 mb-4 group">
-                        <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/28c6122a1963fd157314f1306140d356e6ed3ca4/Websites%20Images/Test%20image%20originals.jpg" alt="Originals Logo" class="w-10 h-10 rounded-lg object-contain group-hover:rotate-12 transition-transform bg-white/10">
-                        <span class="font-serif text-xl font-bold tracking-tight">Original-ClothingCo</span>
+                        <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/28c6122a1963fd157314f1306140d356e6ed3ca4/Websites%20Images/Test%20image%20originals.jpg" alt="Originals Logo" class="w-10 h-10 rounded-lg object-contain transition-transform bg-white/10">
+                        <span class="font-serif text-xl font-bold tracking-tight">Originals Clothing</span>
                     </a>
                     <p class="text-slate-400 max-w-sm text-sm">Premium essentials for the modern lifestyle.</p>
                 </div>
@@ -548,12 +516,10 @@
         let currentLightboxImageIndex = 0;
         let activeCategory = 'all';
         let searchQuery = '';
+        let isFreeShipCodeActive = false;
         
-        // Touch handling variables for swipes
         let touchStartX = 0;
         let touchEndX = 0;
-
-        // Hero Slider Variables
         let currentHeroSlide = 0;
         let heroInterval;
         let heroTouchStartX = 0;
@@ -561,446 +527,95 @@
         let heroDirection = 1;
 
         const githubBaseUrl = "https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/ff8dfac8bc5702c6bb8d008ff8510b71bf143d6d/Websites%20Images/";
-        
-        const getImagesForProduct = (productName) => {
-            return Array.from({length: 5}, (_, i) => {
-                const fileName = `${productName} ${i + 1}.jpg`; 
-                return `${githubBaseUrl}${encodeURIComponent(fileName)}`;
-            });
-        };
+        const getImagesForProduct = (productName) => Array.from({length: 5}, (_, i) => `${githubBaseUrl}${encodeURIComponent(productName + ' ' + (i + 1) + '.jpg')}`);
 
         const products = [
-            {
-                id: 101,
-                category: 'adult',
-                name: 'Classic Tee',
-                price: 20.00,
-                colors: [
-                    {id: 'blk', name: 'Black', hex: '#000000'},
-                    {id: 'wht', name: 'White', hex: '#ffffff'},
-                    {id: 'pnk', name: 'Pink', hex: '#ff85d5'},
-                    {id: 'red', name: 'Red', hex: '#ff0000'}
-                ],
-                manualImages: [
-                    'black teeshirt front.jpg', 
-                    'black teeshirt back.jpg',
-                    'white teeshirt front.jpg', 
-                    'white teeshirt back.jpg',
-                    'pink teeshirt front.jpg', 
-                    'pink teeshirt back.jpg',
-                    'red teeshirt front.jpg', 
-                    'red teeshirt back.jpg',
-                    'assortment teeshirts.jpg'
-                ]
-            },
-            {
-                id: 102,
-                category: 'adult',
-                name: 'Graphic Design Tee',
-                price: 45.00,
-                colors: [{id: 'blk', name: 'Black', hex: '#000000'}],
-                manualImages: ['black designed teeshirt front.jpg', 'black designed teeshirt #5.jpg']
-            },
-            {
-                id: 103,
-                category: 'adult',
-                name: 'Graphic Tee - Series 2',
-                price: 45.00,
-                colors: [{id: 'blk', name: 'Black', hex: '#000000'}],
-                manualImages: ['black designed teeshirt back #2.jpg', 'black designed teeshirt #3.jpg']
-            },
-            {
-                id: 104,
-                category: 'adult',
-                name: 'Graphic Tee - Series 3',
-                price: 45.00,
-                colors: [{id: 'blk', name: 'Black', hex: '#000000'}],
-                manualImages: ['black designed teeshirt front #4.jpg']
-            },
-            {
-                id: 105,
-                category: 'adult',
-                name: 'Everyday Hoodie',
-                price: 45.00,
-                colors: [{id: 'gry', name: 'Grey', hex: '#9ca3af'}, {id: 'blk', name: 'Black', hex: '#000000'}, {id: 'red', name: 'Red', hex: '#ff0000'}],
-                manualImages: ['grey hoodie front.jpg', 'black hoodie front.jpg', 'red hoodie front.jpg']
-            },
-            {
-                id: 106,
-                category: 'adult',
-                name: 'Essential Sweatpants',
-                price: 50.00,
-                colors: [
-                    {id: 'ast', name: 'Assortment', hex: 'linear-gradient(135deg, #ff0000, #9ca3af, #000000)'},
-                    {id: 'gry', name: 'Grey', hex: '#9ca3af'},
-                    {id: 'blk', name: 'Black', hex: '#000000'},
-                    {id: 'red', name: 'Red', hex: '#ff0000'},
-                ],
-                manualImages: [
-                    'assortment sweatpants #2.jpg',
-                    'grey sweatpant front.jpg', 'black sweatpants front.jpg', 'red sweatpants front.jpg'
-                ]
-            },
-            {
-                id: 107,
-                category: 'adult',
-                name: 'Striped Sweatpants Series',
-                price: 50.00,
-                colors: [
-                    {id: 'ast', name: 'Assortment', hex: 'linear-gradient(135deg, #00ff00 0%, #0070ff 33%, #000000 66%, #ff85d5 100%)'},
-                    {id: 'grn', name: 'Green Striped', hex: '#00ff00'},
-                    {id: 'blu', name: 'Blue Striped', hex: '#0070ff'},
-                    {id: 'blk', name: 'Black Striped', hex: '#000000'},
-                    {id: 'pnk', name: 'Pink Striped', hex: '#ff85d5'}
-                ],
-                manualImages: [
-                    'assortment striped sweatpants.jpg',
-                    'green sweatpants front.jpg', 
-                    'blue stripped sweatpants front.jpg',
-                    'black stripped sweatpants front.jpg',
-                    'pink stripped sweatpants front.jpg'
-                ]
-            },
-            {
-                id: 108,
-                category: 'adult',
-                name: 'The Essentials Kit',
-                price: 90.00,
-                colors: [{id: 'blk', name: 'Black', hex: '#000000'}, {id: 'red', name: 'Red', hex: '#ff0000'}, {id: 'gry', name: 'Grey', hex: '#9ca3af'}],
-                manualImages: ['assortment kits.jpg']
-            },
-            {
-                id: 109,
-                category: 'adult',
-                name: 'Signature Headwear',
-                price: 25.00,
-                colors: [{id: 'grn', name: 'Green Cap', hex: '#22c55e'}, {id: 'red', name: 'Red Cap', hex: '#ff0000'}, {id: 'pnk', name: 'Pink Cap', hex: '#ff85d5'}],
-                manualImages: ['green hat front.jpg', 'green hat back.jpg', 'red hat front.jpg', 'red hat back.jpg', 'pink hat front.jpg']
-            },
-            {
-                id: 110,
-                category: 'adult',
-                name: 'Essential Beanie',
-                price: 20.00,
-                colors: [{id: 'red', name: 'Red', hex: '#ff0000'}, {id: 'gry', name: 'Grey', hex: '#9ca3af'}, {id: 'blk', name: 'Black', hex: '#000000'}],
-                manualImages: ['red sockhat front.jpg', 'grey sockhat front.jpg', 'black sockhat front.jpg']
-            },
-            {
-                id: 111,
-                category: 'adult',
-                name: 'Casual Pink Shirt',
-                price: 50.00,
-                colors: [{id: 'pnk', name: 'Pink', hex: '#ff85d5'}],
-                manualImages: ['pink shirt front.jpg', 'pink shirt back.jpg']
-            },
-            {
-                id: 112,
-                category: 'adult',
-                name: 'Performance Jersey',
-                price: 50.00,
-                colors: [{id: 'wht', name: 'White', hex: '#ffffff'}],
-                manualImages: ['white jersey front.jpg', 'white jersey back.jpg']
-            },
-            {
-                id: 113,
-                category: 'adult',
-                name: 'Striped Jersey',
-                price: 50.00,
-                colors: [{id: 'gry-str', name: 'Black/Grey Stripe', hex: '#4b5563'}],
-                manualImages: ['grey striped jersy front.jpg', 'black jersey back.jpg']
-            }
+            { id: 101, category: 'adult', name: 'The Origin Tee', price: 1.00, colors: [{id:'blk',name:'Black',hex:'#000000'},{id:'wht',name:'White',hex:'#ffffff'},{id:'pnk',name:'Pink',hex:'#ff85d5'},{id:'red',name:'Red',hex:'#ff0000'}], manualImages: ['black teeshirt front.jpg','black teeshirt back.jpg','white teeshirt front.jpg','white teeshirt back.jpg','pink teeshirt front.jpg','pink teeshirt back.jpg','red teeshirt front.jpg','red teeshirt back.jpg','assortment teeshirts.jpg']},
+            { id: 102, category: 'adult', name: 'The Visionary Graphic', price: 45.00, colors: [{id:'blk',name:'Black',hex:'#000000'}], manualImages: ['black designed teeshirt front.jpg','black designed teeshirt #5.jpg']},
+            { id: 103, category: 'adult', name: 'Abstract Legacy II', price: 45.00, colors: [{id:'blk',name:'Black',hex:'#000000'}], manualImages: ['black designed teeshirt back #2.jpg','black designed teeshirt #3.jpg']},
+            { id: 104, category: 'adult', name: 'Infinite Signature III', price: 45.00, colors: [{id:'blk',name:'Black',hex:'#000000'}], manualImages: ['black designed teeshirt front #4.jpg']},
+            { id: 105, category: 'adult', name: 'The Vault Hoodie', price: 45.00, colors: [{id:'gry',name:'Grey',hex:'#9ca3af'},{id:'blk',name:'Black',hex:'#000000'},{id:'red',name:'Red',hex:'#ff0000'}], manualImages: ['grey hoodie front.jpg','black hoodie front.jpg','red hoodie front.jpg']},
+            { id: 106, category: 'adult', name: 'The Foundational Legacy Joggers', price: 50.00, colors: [{id:'ast',name:'Assortment',hex:'linear-gradient(135deg, #ff0000, #9ca3af, #000000)'},{id:'gry',name:'Grey',hex:'#9ca3af'},{id:'blk',name:'Black',hex:'#000000'},{id:'red',name:'Red',hex:'#ff0000'}], manualImages: ['assortment sweatpants #2.jpg','grey sweatpant front.jpg','black sweatpants front.jpg','red sweatpants front.jpg']},
+            { id: 107, category: 'adult', name: 'Parallel Motion Sweats', price: 50.00, colors: [{id:'ast',name:'Assortment',hex:'linear-gradient(135deg, #00ff00 0%, #0070ff 33%, #000000 66%, #ff85d5 100%)'},{id:'grn',name:'Green Striped',hex:'#00ff00'},{id:'blu',name:'Blue Striped',hex:'#0070ff'},{id:'blk',name:'Black Striped',hex:'#000000'},{id:'pnk',name:'Pink Striped',hex:'#ff85d5'}], manualImages: ['assortment striped sweatpants.jpg','green sweatpants front.jpg','blue stripped sweatpants front.jpg','black stripped sweatpants front.jpg','pink stripped sweatpants front.jpg']},
+            { id: 108, category: 'adult', name: 'The Blueprint Bundle', price: 90.00, colors: [{id:'blk',name:'Black',hex:'#000000'},{id:'red',name:'Red',hex:'#ff0000'},{id:'gry',name:'Grey',hex:'#9ca3af'}], manualImages: ['assortment kits.jpg']},
+            { id: 109, category: 'adult', name: 'Original Icon Crown', price: 25.00, colors: [{id:'grn',name:'Green Cap',hex:'#22c55e'},{id:'red',name:'Red Cap',hex:'#ff0000'},{id:'pnk',name:'Pink Cap',hex:'#ff85d5'}], manualImages: ['green hat front.jpg','green hat back.jpg','red hat front.jpg','red hat back.jpg','pink hat front.jpg']},
+            { id: 110, category: 'adult', name: 'Nomad Thermal Knit', price: 20.00, colors: [{id:'red',name:'Red',hex:'#ff0000'},{id:'gry',name:'Grey',hex:'#9ca3af'},{id:'blk',name:'Black',hex:'#000000'}], manualImages: ['red sockhat front.jpg','grey sockhat front.jpg','black sockhat front.jpg']},
+            { id: 111, category: 'adult', name: 'Rose Horizon Casual', price: 50.00, colors: [{id:'pnk',name:'Pink',hex:'#ff85d5'}], manualImages: ['pink shirt front.jpg','pink shirt back.jpg']},
+            { id: 112, category: 'adult', name: 'The Pristine Legacy Jersey', price: 50.00, colors: [{id:'wht',name:'White',hex:'#ffffff'}], manualImages: ['white jersey front.jpg','white jersey back.jpg']},
+            { id: 113, category: 'adult', name: 'The Vector Stripe Jersey', price: 50.00, colors: [{id:'gry-str',name:'Black/Grey Stripe',hex:'#4b5563'}], manualImages: ['grey striped jersy front.jpg','black jersey back.jpg']}
         ];
 
-        products.forEach(p => {
-            p.images = p.manualImages ? p.manualImages.map(f => githubBaseUrl + encodeURIComponent(f)) : getImagesForProduct(p.name);
-        });
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            if (menu.classList.contains('open')) {
-                menu.classList.remove('open');
-                setTimeout(() => menu.style.display = 'none', 300);
-            } else {
-                menu.style.display = 'block';
-                setTimeout(() => menu.classList.add('open'), 10);
-            }
-        }
+        products.forEach(p => { p.images = p.manualImages ? p.manualImages.map(f => githubBaseUrl + encodeURIComponent(f)) : getImagesForProduct(p.name); });
 
         function navigate(view) {
-            ['view-shop', 'view-contact', 'view-cart', 'view-about', 'view-checkout'].forEach(id => {
-                document.getElementById(id).classList.add('hidden', 'opacity-0');
-            });
+            ['view-shop','view-contact','view-cart','view-about','view-checkout'].forEach(id => document.getElementById(id).classList.add('hidden','opacity-0'));
             const target = document.getElementById(`view-${view}`);
             target.classList.remove('hidden');
             setTimeout(() => target.classList.remove('opacity-0'), 10);
-            
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('text-sky-400', 'border-b-2', 'border-sky-400'));
-            const navBtn = document.getElementById(`nav-${view}`);
-            if(navBtn) navBtn.classList.add('text-sky-400', 'border-b-2', 'border-sky-400');
-            
             if(view === 'cart') updateCartUI();
-            if(view === 'checkout') {
-                updateCheckoutTotal();
-                initPayPalButtons();
-            }
-            
-            if (view === 'shop' && activeCategory !== 'all') {
-                setTimeout(() => {
-                    const collectionSection = document.getElementById('collection');
-                    if(collectionSection) {
-                        const yOffset = -100;
-                        const y = collectionSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                        window.scrollTo({top: y, behavior: 'smooth'});
-                    }
-                }, 100);
-            } else if (view !== 'shop' || activeCategory === 'all') {
-                 window.scrollTo(0,0);
-            }
-        }
-
-        function toggleSearchBar() {
-            const container = document.getElementById('search-container');
-            const input = document.getElementById('search-input');
-            if (container.classList.contains('search-hidden')) {
-                container.classList.remove('search-hidden');
-                container.classList.add('search-visible');
-                input.focus();
-            } else {
-                container.classList.remove('search-visible');
-                container.classList.add('search-hidden');
-            }
-        }
-
-        function handleSearchClose() {
-            const input = document.getElementById('search-input');
-            if (input.value.length > 0) {
-                clearSearch();
-                input.focus();
-            } else {
-                toggleSearchBar();
-            }
-        }
-
-        function handleSearchMouseLeave() {
-            const input = document.getElementById('search-input');
-            const container = document.getElementById('search-container');
-            if (input.value.trim() === '') {
-                container.classList.remove('search-visible');
-                container.classList.add('search-hidden');
-            }
-        }
-
-        function clearSearch() {
-            document.getElementById('search-input').value = '';
-            handleSearch('');
-        }
-
-        function handleSearch(query) {
-            searchQuery = query.toLowerCase();
-            if (searchQuery.length > 0 && document.getElementById('view-shop').classList.contains('hidden')) {
-                navigate('shop');
-            }
-            filterCategory(activeCategory, true);
-        }
-
-        function filterCategory(category, isSearch = false) {
-            if (!isSearch) {
-                activeCategory = category;
-                navigate('shop');
-            }
-            const title = document.getElementById('collection-title');
-            const subtitle = document.getElementById('collection-subtitle');
-            
-            if (category === 'all') {
-                title.innerText = 'Our Essentials';
-                subtitle.innerText = 'Hand-picked styles for everyday versatility.';
-            } else {
-                const displayCategory = category.charAt(0).toUpperCase() + category.slice(1);
-                title.innerText = `${displayCategory} Collection`;
-                subtitle.innerText = `Premium original designs for the modern ${category}.`;
-            }
-
-            document.querySelectorAll('.cat-filter').forEach(btn => {
-                btn.classList.remove('bg-sky-500', 'border-sky-500');
-                if (btn.dataset.category === category) btn.classList.add('bg-sky-500', 'border-sky-500');
-            });
-            renderProducts();
+            if(view === 'checkout') updateCheckoutTotal();
+            window.scrollTo(0,0);
         }
 
         function renderProducts() {
             const grid = document.getElementById('product-grid');
-            const noResults = document.getElementById('no-results');
-            
             let filtered = activeCategory === 'all' ? products : products.filter(p => p.category === activeCategory);
             if (searchQuery) filtered = filtered.filter(p => p.name.toLowerCase().includes(searchQuery));
+            if (filtered.length === 0) { grid.innerHTML = ''; document.getElementById('no-results').classList.remove('hidden'); return; }
+            document.getElementById('no-results').classList.add('hidden');
 
-            if (filtered.length === 0) {
-                grid.innerHTML = '';
-                noResults.classList.remove('hidden');
-                return;
-            } else {
-                noResults.classList.add('hidden');
-            }
-
-            grid.innerHTML = filtered.map(product => {
-                const trackWidth = product.images.length * 100;
-                const imgWidth = 100 / product.images.length;
-                const isHeadwear = product.id === 106 || product.id === 109;
-                const sizes = isHeadwear ? ['One Size Fits All'] : ['S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL'];
-                
-                return `
+            grid.innerHTML = filtered.map(product => `
                 <div class="product-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700/50 flex flex-col group">
-                    <div class="relative aspect-[3/4] overflow-hidden" 
-                         ontouchstart="handleTouchStart(event)" 
-                         ontouchend="handleTouchEnd(event)">
-                        <div class="absolute top-3 left-3 z-20 bg-black/60 backdrop-blur-md text-white text-[10px] font-mono px-2 py-1 rounded border border-white/10 pointer-events-none">
-                            ID: ${product.id}
+                    <div class="relative aspect-[3/4] overflow-hidden" ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event)">
+                        <div class="image-track flex h-full" data-index="0" style="width: ${product.images.length * 100}%;">
+                            ${product.images.map(img => `<div class="h-full relative overflow-hidden" style="width: ${100/product.images.length}%;"><img src="${img}" class="w-full h-full object-cover"></div>`).join('')}
                         </div>
-                        <div class="image-track flex h-full" data-index="0" style="width: ${trackWidth}%;">
-                            ${product.images.map((img, idx) => `
-                                <div class="h-full relative overflow-hidden" style="width: ${imgWidth}%;">
-                                    <img src="${img}" 
-                                         onerror="this.onerror=null;this.src='https://placehold.co/600x800/1e293b/ffffff?text=${encodeURIComponent('Product ' + product.id)}+${idx+1}'" 
-                                         onclick="openLightbox(${product.id}, ${idx})" 
-                                         class="w-full h-full object-cover cursor-default absolute inset-0">
-                                </div>
-                            `).join('')}
-                        </div>
-                        
-                        <!-- Light Swipe Arrows (Fade on Hover) -->
-                        <div class="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-2 pointer-events-none z-10">
-                            <button onclick="changeImage(this, -1)" class="pointer-events-auto w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white/50 hover:bg-white/30 hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                            </button>
-                            <button onclick="changeImage(this, 1)" class="pointer-events-auto w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white/50 hover:bg-white/30 hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                            </button>
+                        <div class="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button onclick="changeImage(this, -1)" class="w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M15 19l-7-7 7-7"/></svg></button>
+                            <button onclick="changeImage(this, 1)" class="w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M9 5l7 7-7 7"/></svg></button>
                         </div>
                     </div>
                     <div class="p-5 flex-grow flex flex-col">
-                        <div class="mb-3">
-                            <input type="text" placeholder="Enter Product Name" class="w-full bg-slate-900 border border-slate-700 rounded px-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 text-sm font-semibold">
-                        </div>
+                        <h3 class="text-white text-lg font-bold mb-1">${product.name}</h3>
                         <p class="text-sky-400 font-semibold mb-4">$${product.price.toFixed(2)}</p>
                         <div class="space-y-4 mb-6">
                             <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Size</p>
-                                <div class="flex gap-2 text-xs flex-wrap">
-                                    ${sizes.map(size => `
-                                        <div class="size-btn">
-                                            <input type="radio" name="size-${product.id}" id="s-${product.id}-${size}" value="${size}" class="hidden">
-                                            <label for="s-${product.id}-${size}" class="h-10 px-3 min-w-[2.5rem] rounded-lg border border-slate-700 flex items-center justify-center font-bold cursor-pointer hover:border-sky-500 text-xs whitespace-nowrap transition-colors">
-                                                ${size}
-                                            </label>
-                                        </div>`).join('')}
-                                </div>
+                                <div class="flex gap-2 flex-wrap">${['S','M','L','XL','XXL','3XL','4XL'].map(size => `<div class="size-btn"><input type="radio" name="size-${product.id}" id="s-${product.id}-${size}" value="${size}" class="hidden"><label for="s-${product.id}-${size}" class="h-8 px-3 rounded border border-slate-700 flex items-center justify-center font-bold cursor-pointer hover:border-sky-500 text-xs transition-colors">${size}</label></div>`).join('')}</div>
                             </div>
                             <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Color</p>
-                                <div class="flex gap-3 flex-wrap">
-                                    ${product.colors.map(c => `
-                                        <div class="color-btn">
-                                            <input type="radio" 
-                                                   name="color-${product.id}" 
-                                                   id="c-${product.id}-${c.id}" 
-                                                   value="${c.name}" 
-                                                   class="hidden"
-                                                   onchange="handleColorSelect(this, ${product.id}, '${c.name}')">
-                                            <label for="c-${product.id}-${c.id}" class="block w-6 h-6 rounded-full border border-slate-600 cursor-pointer shadow-sm transition-all" style="background: ${c.hex}" title="${c.name}"></label>
-                                        </div>`).join('')}
-                                </div>
+                                <div class="flex gap-3 flex-wrap">${product.colors.map(c => `<div class="color-btn"><input type="radio" name="color-${product.id}" id="c-${product.id}-${c.id}" value="${c.name}" class="hidden" onchange="handleColorSelect(this, ${product.id}, '${c.name}')"><label for="c-${product.id}-${c.id}" class="block w-6 h-6 rounded-full border border-slate-600 cursor-pointer shadow-sm transition-all" style="background: ${c.hex}"></label></div>`).join('')}</div>
                             </div>
                         </div>
                         <button onclick="addToCart(${product.id})" class="w-full bg-slate-700 hover:bg-sky-500 py-3 rounded-xl font-bold transition-all mt-auto">Add to Bag</button>
                     </div>
-                </div>
-            `}).join('');
+                </div>`).join('');
         }
 
-        function handleColorSelect(input, pid, colorName) {
-            const p = products.find(i => i.id === pid);
-            if(!p) return;
-            const mainColor = colorName.toLowerCase().split(' ')[0];
-            const idx = p.images.findIndex(img => img.toLowerCase().includes(mainColor));
-            if (idx !== -1) {
-                const card = input.closest('.product-card');
-                const track = card.querySelector('.image-track');
-                const total = track.children.length;
-                track.dataset.index = idx;
-                track.style.transform = `translateX(-${idx * (100 / total)}%)`;
-            }
-        }
-
-        // Helper for arrow navigation
-        function changeImage(btn, dir) {
-            event.stopPropagation();
-            const tr = btn.closest('.relative').querySelector('.image-track');
-            changeImageByTrack(tr, dir);
-        }
-
-        // --- Cart Logic with Persistence ---
-
-        function saveCart() {
-            localStorage.setItem('originals_cart', JSON.stringify(cart));
-        }
-
-        function loadCart() {
-            const saved = localStorage.getItem('originals_cart');
-            if (saved) {
-                try {
-                    cart = JSON.parse(saved);
-                    updateCartUI();
-                } catch (e) {
-                    console.error("Error loading cart", e);
-                    cart = [];
-                }
-            }
-        }
-
-        function addToCart(pid) {
-            const p = products.find(i => i.id === pid);
-            const s = document.querySelector(`input[name="size-${pid}"]:checked`);
-            const c = document.querySelector(`input[name="color-${pid}"]:checked`);
-            if(!s || !c) return showNotification('Select size and color', 'error');
-            cart.push({ cartId: Date.now(), ...p, selSize: s.value, selColor: c.value });
-            saveCart();
-            updateCartUI();
-            showNotification(`${p.name} added to bag!`);
-        }
-
-        function removeFromCart(id) {
-            cart = cart.filter(i => i.cartId !== id);
-            saveCart();
-            updateCartUI();
-            if (!document.getElementById('view-checkout').classList.contains('hidden')) {
+        function applyPromoCode() {
+            const inputField = document.getElementById('promo-input');
+            const input = inputField.value.trim().toUpperCase();
+            const msg = document.getElementById('promo-message');
+            
+            if (input === 'FREESHIPDC573') {
+                isFreeShipCodeActive = true;
+                msg.innerText = "✓ Promo Applied: Free Shipping Active";
+                msg.className = "text-[10px] mt-2 font-bold text-emerald-400 block";
+                inputField.classList.add('border-emerald-500');
+                inputField.classList.remove('border-slate-700', 'border-rose-500');
+                updateCheckoutTotal();
+                showNotification("Free shipping applied!");
+            } else if (input === "") {
+                msg.innerText = "Please enter a code";
+                msg.className = "text-[10px] mt-2 font-bold text-amber-400 block";
+                msg.classList.remove('hidden');
+            } else {
+                isFreeShipCodeActive = false;
+                msg.innerText = "Invalid Promo Code";
+                msg.className = "text-[10px] mt-2 font-bold text-rose-400 block";
+                inputField.classList.add('border-rose-500');
+                inputField.classList.remove('border-slate-700', 'border-emerald-500');
                 updateCheckoutTotal();
             }
-        }
-
-        function updateCartUI() {
-            const list = document.getElementById('full-cart-items');
-            const tot = document.getElementById('full-total');
-            const cnt = document.getElementById('cart-count');
-            const empty = document.getElementById('full-empty-msg');
-            const card = document.getElementById('cart-summary-card');
-
-            cnt.innerText = cart.length;
-            if (cart.length === 0) { list.innerHTML = ''; empty.classList.remove('hidden'); card.classList.add('hidden'); return; }
-            empty.classList.add('hidden'); card.classList.remove('hidden');
-            
-            let total = 0;
-            list.innerHTML = cart.map(i => {
-                total += i.price;
-                return `
-                    <div class="flex items-center space-x-6 bg-slate-800/40 p-5 rounded-3xl border border-slate-700/50">
-                        <img src="${i.images[0]}" class="w-24 h-28 object-cover rounded-2xl" onerror="this.src='https://placehold.co/600x800/1e293b/ffffff?text=${encodeURIComponent(i.name)}'">
-                        <div class="flex-grow">
-                            <h4 class="font-bold text-lg text-white">${i.name}</h4>
-                            <p class="text-sm text-slate-400">${i.selColor} • ${i.selSize}</p>
-                            <p class="text-sky-400 font-bold mt-2">$${i.price.toFixed(2)}</p>
-                        </div>
-                        <button onclick="removeFromCart(${i.cartId})" class="p-3 text-slate-500 hover:text-rose-400 bg-slate-900/50 rounded-full transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg></button>
-                    </div>`;
-            }).join('');
-            tot.innerText = `$${total.toFixed(2)}`;
         }
 
         function updateCheckoutTotal() {
@@ -1009,370 +624,69 @@
             const taxElem = document.getElementById('checkout-tax');
             const shipElem = document.getElementById('checkout-shipping');
             const totElem = document.getElementById('checkout-total');
+            const msg = document.getElementById('promo-message');
+            const inputField = document.getElementById('promo-input');
+            
             let subtotal = cart.reduce((acc, item) => acc + item.price, 0);
             let shipping = 20.00;
             const shipMethod = document.querySelector('input[name="shipping"]:checked');
-            if (shipMethod && shipMethod.value === 'express') {
-                shipping = 60.00;
-            }
-            if (subtotal > 100 && (!shipMethod || shipMethod.value === 'standard')) {
+            if (shipMethod && shipMethod.value === 'express') shipping = 60.00;
+            
+            if (isFreeShipCodeActive) {
+                shipping = 0;
+                if(msg) { msg.innerText = "✓ Promo Applied: Free Shipping Active"; msg.className = "text-[10px] mt-2 font-bold text-emerald-400 block"; }
+                if(inputField) { inputField.value = 'FREESHIPDC573'; inputField.classList.add('border-emerald-500'); }
+            } else if (subtotal > 100 && (!shipMethod || shipMethod.value === 'standard')) {
                 shipping = 0; 
             }
+            
             let tax = subtotal * 0.04225;
             list.innerHTML = cart.map(i => `
                 <div class="flex items-center space-x-4">
-                    <img src="${i.images[0]}" class="w-12 h-14 object-cover rounded-lg border border-slate-700" onerror="this.src='https://placehold.co/600x800/1e293b/ffffff?text=${encodeURIComponent(i.name)}'">
-                    <div class="flex-grow text-xs">
-                        <h5 class="font-bold text-white">${i.name}</h5>
-                        <p class="text-slate-400">${i.selSize} • ${i.selColor}</p>
-                    </div>
-                    <div class="flex flex-col items-end gap-1">
-                        <span class="text-sky-400 font-bold text-sm">$${i.price.toFixed(2)}</span>
-                        <button onclick="removeFromCart(${i.cartId})" class="text-slate-500 hover:text-rose-500 transition-colors p-1" title="Remove item">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
-                        </button>
-                    </div>
+                    <img src="${i.images[0]}" class="w-12 h-14 object-cover rounded-lg border border-slate-700">
+                    <div class="flex-grow text-xs"><h5 class="font-bold">${i.name}</h5><p class="text-slate-400">${i.selSize} • ${i.selColor}</p></div>
+                    <span class="text-sky-400 font-bold text-sm">$${i.price.toFixed(2)}</span>
                 </div>`).join('');
+            
             subElem.innerText = `$${subtotal.toFixed(2)}`;
             taxElem.innerText = `$${tax.toFixed(2)}`;
             shipElem.innerText = shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`;
+            shipElem.className = shipping === 0 ? 'text-emerald-400 font-bold' : 'text-slate-300';
             totElem.innerText = `$${(subtotal + tax + shipping).toFixed(2)}`;
         }
 
-        // --- PayPal Integration Logic ---
-        
-        let paypalRetries = 0;
-
-        function initPayPalButtons() {
-            const container = document.getElementById('paypal-button-container');
-            if (!container) return;
-
-            if (container.innerHTML.includes('iframe') || container.innerHTML.includes('zoid')) return;
-
-            if (typeof paypal === 'undefined') {
-                if (window.paypalLoaded === false) {
-                    console.error("PayPal SDK script failed to load.");
-                    renderPayPalError(container, "Unable to connect to PayPal. Please check your internet connection or try Credit Card.");
-                    return;
-                }
-                
-                if (paypalRetries < 10) {
-                    paypalRetries++;
-                    container.innerHTML = '<div class="flex justify-center p-4"><div class="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div></div>';
-                    setTimeout(initPayPalButtons, 500); 
-                    return;
-                } else {
-                    console.warn("PayPal initialization timed out.");
-                    renderMockPayPalButton(container);
-                    return;
-                }
-            }
-
-            container.innerHTML = '';
-            
-            try {
-                paypal.Buttons({
-                    style: {
-                        layout: 'vertical',
-                        color:  'gold',
-                        shape:  'rect',
-                        label:  'paypal'
-                    },
-                    createOrder: function(data, actions) {
-                        let subtotal = cart.reduce((acc, item) => acc + item.price, 0);
-                        let shipping = 20.00;
-                        const shipMethod = document.querySelector('input[name="shipping"]:checked');
-                        if (shipMethod && shipMethod.value === 'express') {
-                            shipping = 60.00;
-                        }
-                        if (subtotal > 100 && (!shipMethod || shipMethod.value === 'standard')) {
-                            shipping = 0; 
-                        }
-                        let tax = subtotal * 0.04225;
-                        let total = (subtotal + tax + shipping).toFixed(2);
-
-                        return actions.order.create({
-                            purchase_units: [{
-                                description: "Originals Clothing Co Order",
-                                amount: {
-                                    value: total
-                                }
-                            }]
-                        });
-                    },
-                    onApprove: function(data, actions) {
-                        return actions.order.capture().then(function(details) {
-                            handlePlaceOrder('PayPal');
-                        });
-                    },
-                    onError: function(err) {
-                        console.error('PayPal Button Error:', err);
-                        renderPayPalError(container, "Payment service unavailable.");
-                    }
-                })
-                .render('#paypal-button-container')
-                .catch(err => {
-                    console.error('PayPal Rendering Error:', err);
-                    renderMockPayPalButton(container);
-                });
-            } catch (error) {
-                console.error("PayPal Setup Exception:", error);
-                renderMockPayPalButton(container);
-            }
-        }
-
-        function renderPayPalError(container, message) {
-            container.innerHTML = `<div class="bg-rose-500/20 border border-rose-500 rounded p-3 text-center"><p class="text-rose-200 text-sm">${message}</p></div>`;
-        }
-
-        function renderMockPayPalButton(container) {
-            container.innerHTML = `
-                <div class="space-y-3 animate-fade-in">
-                    <div class="bg-amber-100 border-l-4 border-amber-500 text-amber-700 p-2 text-xs mb-2" role="alert">
-                        <p class="font-bold">Preview / Fallback Mode</p>
-                        <p>PayPal script restricted in preview. Using simulated checkout.</p>
-                    </div>
-                    <button onclick="handlePlaceOrder('PayPal (Simulated)')" class="w-full h-[45px] rounded-[4px] bg-[#FFC439] hover:brightness-95 transition-all flex items-center justify-center relative group overflow-hidden">
-                        <span class="italic font-bold text-[#003087] text-lg mr-1 font-sans">Pay</span>
-                        <span class="italic font-bold text-[#009cde] text-lg font-sans">Pal</span>
-                    </button>
-                    <div class="text-center">
-                        <span class="text-[10px] text-slate-500">Secure Payment Processing</span>
-                    </div>
-                </div>
-            `;
-        }
-
-        function handleCreditCardCheckout() {
-            openModal('sky-500', 'Payment Required', 'Please use the secure PayPal or Venmo buttons in the Payment Method section to complete your transaction.', '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />');
-        }
-
-        function sendOrderEmail(method) {
-            const name = document.getElementById('shipping-name')?.value || "Not Provided";
-            const email = document.getElementById('shipping-email')?.value || "Not Provided";
-            const address = document.getElementById('shipping-address')?.value || "";
-            const city = document.getElementById('shipping-city')?.value || "";
-            const state = document.getElementById('shipping-state')?.value || "";
-            const zip = document.getElementById('shipping-zip')?.value || "";
-            
-            const fullAddress = address ? `${address}, ${city}, ${state} ${zip}` : "Not Provided (Check PayPal Transaction)";
-            const total = document.getElementById('checkout-total')?.innerText || "$0.00";
-
-            const itemDetails = cart.map(i => `- ${i.name} (${i.selSize}, ${i.selColor}) - $${i.price.toFixed(2)}`).join('\n');
-
-            const message = `
-New Order Received!
-
-Method: ${method}
-Total: ${total}
-
-Customer Details:
-Name: ${name}
-Email: ${email}
-Shipping Address: ${fullAddress}
-
-Order Items:
-${itemDetails}
-            `;
-
-            fetch("https://formsubmit.co/ajax/originaldc573@gmail.com", {
-                method: "POST",
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    _subject: `New Order from ${name} - ${total}`,
-                    email: email,
-                    message: message
-                })
-            })
-            .then(response => console.log("Order email sent successfully"))
-            .catch(error => console.error("Failed to send order email", error));
-        }
-
-        function handlePlaceOrder(method = 'Credit Card') {
-            sendOrderEmail(method);
-            openModal('emerald-500', 'Order Confirmed!', `Thank you for your purchase via ${method}. We have sent a confirmation email to you.`, '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />');
-            cart = [];
-            saveCart();
+        function addToCart(pid) {
+            const p = products.find(i => i.id === pid);
+            const s = document.querySelector(`input[name="size-${pid}"]:checked`);
+            const c = document.querySelector(`input[name="color-${pid}"]:checked`);
+            if(!s || !c) return showNotification('Select size and color', 'error');
+            cart.push({ cartId: Date.now(), ...p, selSize: s.value, selColor: c.value });
             updateCartUI();
-            setTimeout(() => navigate('shop'), 3000);
+            showNotification(`${p.name} added to bag!`);
         }
 
-        function handleContactSubmit(e) { 
-            e.preventDefault(); 
-            const form = e.target;
-            const name = form.querySelector('input[type="text"]').value;
-            const email = form.querySelector('input[type="email"]').value;
-            const message = form.querySelector('textarea').value;
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerText;
-
-            btn.innerText = 'Sending...';
-            btn.disabled = true;
-            
-            fetch("https://formsubmit.co/ajax/originaldc573@gmail.com", {
-                method: "POST",
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    message: message,
-                    _subject: `Originals Contact: Message from ${name}`
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                openModal('sky-500', 'Message Sent', 'We have received your message and will get back to you shortly.', '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />'); 
-                form.reset(); 
-            })
-            .catch(error => {
-                console.error(error);
-                openModal('rose-500', 'Error Sending', 'There was a problem sending your message. Please try again.', '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />');
-            })
-            .finally(() => {
-                btn.innerText = originalText;
-                btn.disabled = false;
-            });
+        function updateCartUI() {
+            const list = document.getElementById('full-cart-items');
+            const tot = document.getElementById('full-total');
+            document.getElementById('cart-count').innerText = cart.length;
+            if (cart.length === 0) { list.innerHTML = ''; document.getElementById('full-empty-msg').classList.remove('hidden'); document.getElementById('cart-summary-card').classList.add('hidden'); return; }
+            document.getElementById('full-empty-msg').classList.add('hidden'); document.getElementById('cart-summary-card').classList.remove('hidden');
+            let total = cart.reduce((acc, item) => acc + item.price, 0);
+            list.innerHTML = cart.map(i => `<div class="flex items-center space-x-6 bg-slate-800/40 p-5 rounded-3xl border border-slate-700/50"><img src="${i.images[0]}" class="w-24 h-28 object-cover rounded-2xl"><div class="flex-grow"><h4 class="font-bold text-lg">${i.name}</h4><p class="text-sm text-slate-400">${i.selColor} • ${i.selSize}</p><p class="text-sky-400 font-bold mt-2">$${i.price.toFixed(2)}</p></div></div>`).join('');
+            tot.innerText = `$${total.toFixed(2)}`;
         }
 
-        function openModal(color, title, body, icon) {
-            const m = document.getElementById('generalModal');
-            document.getElementById('modal-icon').className = `mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-${color}/20 mb-6 text-${color}`;
-            document.getElementById('modal-icon').innerHTML = `<svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">${icon}</svg>`;
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-body').innerText = body;
-            m.classList.remove('hidden');
-            setTimeout(() => { m.classList.add('opacity-100'); m.querySelector('div').classList.remove('scale-95'); }, 10);
-        }
-
-        function closeModal() {
-            const m = document.getElementById('generalModal');
-            m.classList.add('opacity-0'); m.querySelector('div').classList.add('scale-95');
-            setTimeout(() => m.classList.add('hidden'), 300);
-        }
-
-        // --- Hero Slider Logic (Ping-Pong 6 Slides) ---
-        
         function goToHeroSlide(index) {
             currentHeroSlide = index;
-            const track = document.getElementById('hero-track');
-            const dots = document.querySelectorAll('.hero-dot');
-            track.style.transform = `translateX(-${index * (100 / 4)}%)`; 
-            dots.forEach((dot, idx) => {
-                if (idx === index) {
-                    dot.classList.remove('bg-white/40'); dot.classList.add('bg-white');
-                } else {
-                    dot.classList.add('bg-white/40'); dot.classList.remove('bg-white');
-                }
-            });
+            document.getElementById('hero-track').style.transform = `translateX(-${index * 25}%)`;
+            document.querySelectorAll('.hero-dot').forEach((dot, idx) => dot.style.opacity = idx === index ? '1' : '0.4');
         }
+        function nextHeroSlide() { currentHeroSlide = (currentHeroSlide + 1) % 4; goToHeroSlide(currentHeroSlide); }
+        function prevHeroSlide() { currentHeroSlide = (currentHeroSlide - 1 + 4) % 4; goToHeroSlide(currentHeroSlide); }
+        function startHeroAutoPlay() { stopHeroAutoPlay(); heroInterval = setInterval(nextHeroSlide, 5000); }
+        function stopHeroAutoPlay() { if (heroInterval) clearInterval(heroInterval); }
 
-        function autoPlayHero() {
-            if (currentHeroSlide >= 3) heroDirection = -1;
-            else if (currentHeroSlide <= 0) heroDirection = 1;
-            currentHeroSlide += heroDirection;
-            goToHeroSlide(currentHeroSlide);
-        }
-
-        function nextHeroSlide() {
-            let next = currentHeroSlide + 1;
-            if (next > 3) next = 0;
-            goToHeroSlide(next);
-            heroDirection = 1;
-        }
-
-        function prevHeroSlide() {
-            let prev = currentHeroSlide - 1;
-            if (prev < 0) prev = 3;
-            goToHeroSlide(prev);
-            heroDirection = -1;
-        }
-
-        function startHeroAutoPlay() {
-            stopHeroAutoPlay();
-            heroInterval = setInterval(autoPlayHero, 5000);
-        }
-
-        function stopHeroAutoPlay() {
-            if (heroInterval) clearInterval(heroInterval);
-        }
-
-        function handleHeroTouchStart(e) {
-            heroTouchStartX = e.changedTouches[0].screenX;
-            stopHeroAutoPlay();
-        }
-
-        function handleHeroTouchEnd(e) {
-            heroTouchEndX = e.changedTouches[0].screenX;
-            const threshold = 50;
-            if (heroTouchEndX < heroTouchStartX - threshold) nextHeroSlide();
-            if (heroTouchEndX > heroTouchStartX + threshold) prevHeroSlide();
-            startHeroAutoPlay();
-        }
-
-        // --- Product Touch & Swipe Logic ---
-
-        function handleTouchStart(e) {
-            touchStartX = e.changedTouches[0].screenX;
-        }
-
-        function handleTouchEnd(e) {
-            touchEndX = e.changedTouches[0].screenX;
-            const track = e.currentTarget.querySelector('.image-track');
-            if (!track) return;
-            const threshold = 40; 
-            if (touchEndX < touchStartX - threshold) changeImageByTrack(track, 1);
-            else if (touchEndX > touchStartX + threshold) changeImageByTrack(track, -1);
-        }
-
-        function changeImageByTrack(tr, dir) {
-            const total = tr.children.length; 
-            let idx = parseInt(tr.dataset.index);
-            idx = (idx + dir + total) % total;
-            tr.dataset.index = idx;
-            tr.style.transform = `translateX(-${idx * (100 / total)}%)`;
-        }
-
-        function openLightbox(pid, idx) { 
-            // Only open lightbox if it wasn't a swipe (check movement distance)
-            if (Math.abs(touchEndX - touchStartX) > 10) return;
-            currentLightboxProductId = pid; 
-            currentLightboxImageIndex = idx; 
-            const p = products.find(i => i.id === pid); 
-            const img = document.getElementById('lightbox-img'); 
-            img.src = p.images[idx]; 
-            document.getElementById('lightbox').classList.remove('hidden'); 
-            document.body.style.overflow = 'hidden'; 
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-
-        function navigateLightbox(dir) {
-            const p = products.find(i => i.id === currentLightboxProductId);
-            currentLightboxImageIndex = (currentLightboxImageIndex + dir + p.images.length) % p.images.length;
-            document.getElementById('lightbox-img').src = p.images[currentLightboxImageIndex];
-        }
-
-        document.addEventListener('DOMContentLoaded', () => { 
-            loadCart();
-            renderProducts(); 
-            startHeroAutoPlay();
-            document.addEventListener('keydown', (e) => { 
-                if (e.key === 'Escape') { closeLightbox(); closeModal(); } 
-                if (!document.getElementById('lightbox').classList.contains('hidden')) {
-                    if (e.key === 'ArrowLeft') navigateLightbox(-1);
-                    if (e.key === 'ArrowRight') navigateLightbox(1);
-                }
-            }); 
-        });
+        document.addEventListener('DOMContentLoaded', () => { renderProducts(); startHeroAutoPlay(); });
     </script>
 </body>
 </html>

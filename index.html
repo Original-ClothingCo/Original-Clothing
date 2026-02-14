@@ -166,7 +166,7 @@
                 <a href="javascript:void(0)" onclick="navigate('shop')" id="nav-shop" class="text-sky-400 border-b-2 border-sky-400 pb-1 nav-link">Shop</a>
                 
                 <a href="javascript:void(0)" onclick="filterCategory('adult')" class="hover:text-sky-400 transition-colors nav-link">Adults</a>
-                <a href="javascript:void(0)" onclick="filterCategory('kids')" class="hover:text-sky-400 transition-colors nav-link">Kids</a>
+                <!-- Kids Link Removed -->
 
                 <a href="javascript:void(0)" onclick="navigate('about')" id="nav-about" class="hover:text-sky-400 transition-colors nav-link">About</a>
                 <a href="javascript:void(0)" onclick="navigate('contact')" id="nav-contact" class="hover:text-sky-400 transition-colors nav-link">Contact</a>
@@ -193,7 +193,7 @@
             <div class="container mx-auto px-4 py-4 space-y-4">
                 <a href="javascript:void(0)" onclick="navigate('shop'); toggleMobileMenu()" class="block text-slate-300 hover:text-white font-medium">Shop All</a>
                 <a href="javascript:void(0)" onclick="filterCategory('adult'); toggleMobileMenu()" class="block text-slate-300 hover:text-white font-medium">Adults</a>
-                <a href="javascript:void(0)" onclick="filterCategory('kids'); toggleMobileMenu()" class="block text-slate-300 hover:text-white font-medium">Kids</a>
+                <!-- Kids Link Removed -->
                 
                 <div class="border-t border-slate-800 pt-4 space-y-3">
                     <a href="javascript:void(0)" onclick="navigate('about'); toggleMobileMenu()" class="block text-slate-300 hover:text-white">About Us</a>
@@ -297,7 +297,7 @@
                 <div class="flex space-x-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
                     <button onclick="filterCategory('all')" class="cat-filter flex-shrink-0 px-6 py-2 rounded-full bg-slate-800 border border-slate-700 text-sm hover:border-sky-500 transition-colors bg-sky-500 border-sky-500" data-category="all">All</button>
                     <button onclick="filterCategory('adult')" class="cat-filter flex-shrink-0 px-6 py-2 rounded-full bg-slate-800 border border-slate-700 text-sm hover:border-sky-500 transition-colors" data-category="adult">Adult</button>
-                    <button onclick="filterCategory('kids')" class="cat-filter flex-shrink-0 px-6 py-2 rounded-full bg-slate-800 border border-slate-700 text-sm hover:border-sky-500 transition-colors" data-category="kids">Kids</button>
+                    <!-- Kids Filter Removed -->
                 </div>
             </div>
             <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 text-white"></div>
@@ -615,25 +615,33 @@
                     {id: 'gry', name: 'Grey', hex: '#9ca3af'},
                     {id: 'blk', name: 'Black', hex: '#000000'},
                     {id: 'red', name: 'Red', hex: '#ef4444'},
-                    {id: 'grn', name: 'Green', hex: '#16a34a'},
-                    {id: 'pnk-str', name: 'Pink Striped', hex: '#fbcfe8'},
-                    {id: 'blk-str', name: 'Black Striped', hex: '#1e293b'},
-                    {id: 'blu-str', name: 'Blue Striped', hex: '#3b82f6'}
+                    {id: 'grn', name: 'Green', hex: '#16a34a'}
                 ],
                 manualImages: [
                     'grey sweatpant front.jpg', 'black sweatpants front.jpg', 'red sweatpants front.jpg', 
-                    'green sweatpants front.jpg', 'pink stripped sweatpants front.jpg', 
-                    'black stripped sweatpants front.jpg', 'blue stripped sweatpants front.jpg', 
-                    'assortment sweatpants.jpg', 'assortment sweatpants #2.jpg'
+                    'green sweatpants front.jpg, 
+                    'assortment sweatpants #2.jpg'
                 ]
             },
             {
                 id: 104,
                 category: 'adult',
-                name: 'Performance Jersey',
+                name: 'Striped Sweatpants Series',
                 price: 50.00,
-                colors: [{id: 'wht', name: 'White', hex: '#ffffff'}, {id: 'blk', name: 'Black', hex: '#000000'}],
-                manualImages: ['white jersey front.jpg', 'white jersey back.jpg', 'black jersey back.jpg', 'grey striped jersy front.jpg']
+                colors: [
+                    {id: 'ast', name: 'Assortment', hex: '#475569'},
+                    {id: 'grn', name: 'Green Striped', hex: '#15803d'},
+                    {id: 'blu', name: 'Blue Striped', hex: '#2563eb'},
+                    {id: 'blk', name: 'Black Striped', hex: '#0f172a'},
+                    {id: 'pnk', name: 'Pink Striped', hex: '#db2777'}
+                ],
+                manualImages: [
+                    'assortment striped sweatpants.jpg',
+                    'green sweatpants front.jpg', 
+                    'blue stripped sweatpants front.jpg',
+                    'black stripped sweatpants front.jpg',
+                    'pink stripped sweatpants front.jpg'
+                ]
             },
             {
                 id: 105,

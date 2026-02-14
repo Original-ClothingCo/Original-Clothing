@@ -219,49 +219,40 @@
 
     <!-- SHOP VIEW -->
     <div id="view-shop" class="view-transition">
-        <section class="relative w-full h-screen overflow-hidden group"
+        <!-- Modified Hero Section: Reduced height to 70vh and width to 85% for better desktop framing -->
+        <section class="relative w-full h-screen md:h-[70vh] md:w-[85%] md:max-w-[1600px] md:mx-auto md:rounded-3xl md:mt-24 overflow-hidden group border border-slate-700/50 shadow-2xl"
                  onmouseenter="stopHeroAutoPlay()"
                  onmouseleave="startHeroAutoPlay()"
                  ontouchstart="handleHeroTouchStart(event)"
                  ontouchend="handleHeroTouchEnd(event)">
             
-            <!-- Hero Slider Track (600% width for 6 slides) -->
-            <div id="hero-track" class="flex w-[600%] h-full transition-transform duration-700 ease-in-out">
+            <!-- Hero Slider Track (400% width for 4 slides) -->
+            <div id="hero-track" class="flex w-[400%] h-full transition-transform duration-700 ease-in-out">
                 <!-- Slide 1: Kits -->
-                <div class="w-1/6 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
-                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20kits.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Essentials Kit">
+                <div class="w-1/4 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
+                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20kits.jpg" class="absolute inset-0 w-full h-full object-cover object-center" alt="Essentials Kit">
                     <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 </div>
                 <!-- Slide 2: Sweatpants -->
-                <div class="w-1/6 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
-                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20sweatpants.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Sweatpants Collection">
+                <div class="w-1/4 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
+                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20sweatpants.jpg" class="absolute inset-0 w-full h-full object-cover object-center" alt="Sweatpants Collection">
                     <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 </div>
                 <!-- Slide 3: Tees -->
-                <div class="w-1/6 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
-                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20teeshirts.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Tee Collection">
+                <div class="w-1/4 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
+                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/assortment%20teeshirts.jpg" class="absolute inset-0 w-full h-full object-cover object-center" alt="Tee Collection">
                     <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 </div>
                 <!-- Slide 4: Hoodies -->
-                <div class="w-1/6 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
-                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/grey%20hoodie%20front.jpg" class="absolute inset-0 w-full h-full object-cover" style="object-position: top center;" alt="Hoodies">
-                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
-                </div>
-                <!-- Slide 5: Graphic Tees -->
-                <div class="w-1/6 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
-                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/black%20designed%20teeshirt%20front.jpg" class="absolute inset-0 w-full h-full object-cover" style="object-position: top center;" alt="Graphic Tees">
-                    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
-                </div>
-                <!-- Slide 6: Casual Shirt -->
-                <div class="w-1/6 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
-                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/pink%20shirt%20front.jpg" class="absolute inset-0 w-full h-full object-cover" style="object-position: top center;" alt="Casual Shirt Collection">
+                <div class="w-1/4 h-full relative cursor-pointer" onclick="document.getElementById('collection').scrollIntoView({behavior: 'smooth'})">
+                    <img src="https://raw.githubusercontent.com/Original-ClothingCo/Original-Clothing/56332123c50cb912ed8f93da0ceb258f26d1ec80/Websites%20Images/grey%20hoodie%20front.jpg" class="absolute inset-0 w-full h-full object-cover object-center" alt="Hoodies">
                     <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
                 </div>
             </div>
 
             <!-- Static Content Overlay -->
             <div class="absolute inset-0 z-10 flex items-center px-6 md:px-16 pointer-events-none">
-                <div class="max-w-2xl pointer-events-auto mt-20">
+                <div class="max-w-2xl pointer-events-auto">
                     <span class="text-sky-400 font-bold tracking-widest uppercase text-sm mb-4 block">New Season Arrival</span>
                     <h1 class="font-serif text-5xl md:text-8xl mb-6 leading-tight drop-shadow-lg">Define Your <br><span class="italic text-sky-400">Original</span> Style.</h1>
                     <p class="text-slate-300 text-lg md:text-xl mb-8 max-w-lg drop-shadow-md">Sustainable, high-quality essentials designed for the modern individual.</p>
@@ -277,14 +268,12 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
             </button>
 
-            <!-- Slider Navigation Dots (6 Ticks) -->
+            <!-- Slider Navigation Dots (Reduced to 4 Ticks) -->
             <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
                 <button onclick="goToHeroSlide(0)" class="w-3 h-3 rounded-full bg-white transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
                 <button onclick="goToHeroSlide(1)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
                 <button onclick="goToHeroSlide(2)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
                 <button onclick="goToHeroSlide(3)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
-                <button onclick="goToHeroSlide(4)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
-                <button onclick="goToHeroSlide(5)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
             </div>
         </section>
 
@@ -589,13 +578,19 @@
                 colors: [
                     {id: 'blk', name: 'Black', hex: '#000000'},
                     {id: 'wht', name: 'White', hex: '#ffffff'},
-                    {id: 'pnk', name: 'Pink', hex: '#ec4899'},
-                    {id: 'red', name: 'Red', hex: '#ef4444'}
+                    {id: 'pnk', name: 'Pink', hex: '#ff85d5'},
+                    {id: 'red', name: 'Red', hex: '#ff0000'}
                 ],
                 manualImages: [
-                    'black teeshirt front.jpg', 'white teeshirt front.jpg', 'pink teeshirt front.jpg', 
-                    'red teeshirt front.jpg', 'black teeshirt back.jpg', 'white teeshirt back.jpg', 
-                    'pink teeshirt back.jpg', 'red teeshirt back.jpg', 'assortment teeshirts.jpg'
+                    'black teeshirt front.jpg', 
+                    'black teeshirt back.jpg',
+                    'white teeshirt front.jpg', 
+                    'white teeshirt back.jpg',
+                    'pink teeshirt front.jpg', 
+                    'pink teeshirt back.jpg',
+                    'red teeshirt front.jpg', 
+                    'red teeshirt back.jpg',
+                    'assortment teeshirts.jpg'
                 ]
             },
             {
@@ -609,13 +604,37 @@
             {
                 id: 103,
                 category: 'adult',
+                name: 'Graphic Tee - Series 2',
+                price: 45.00,
+                colors: [{id: 'blk', name: 'Black', hex: '#000000'}],
+                manualImages: ['black designed teeshirt back #2.jpg', 'black designed teeshirt #3.jpg']
+            },
+            {
+                id: 104,
+                category: 'adult',
+                name: 'Graphic Tee - Series 3',
+                price: 45.00,
+                colors: [{id: 'blk', name: 'Black', hex: '#000000'}],
+                manualImages: ['black designed teeshirt front #4.jpg']
+            },
+            {
+                id: 105,
+                category: 'adult',
+                name: 'Everyday Hoodie',
+                price: 45.00,
+                colors: [{id: 'gry', name: 'Grey', hex: '#9ca3af'}, {id: 'blk', name: 'Black', hex: '#000000'}, {id: 'red', name: 'Red', hex: '#ff0000'}],
+                manualImages: ['grey hoodie front.jpg', 'black hoodie front.jpg', 'red hoodie front.jpg']
+            },
+            {
+                id: 106,
+                category: 'adult',
                 name: 'Essential Sweatpants',
                 price: 50.00,
                 colors: [
-                    {id: 'ast', name: 'Assortment', hex: '#475569'},
+                    {id: 'ast', name: 'Assortment', hex: 'linear-gradient(135deg, #ff0000, #9ca3af, #000000)'},
                     {id: 'gry', name: 'Grey', hex: '#9ca3af'},
                     {id: 'blk', name: 'Black', hex: '#000000'},
-                    {id: 'red', name: 'Red', hex: '#ef4444'},
+                    {id: 'red', name: 'Red', hex: '#ff0000'},
                 ],
                 manualImages: [
                     'assortment sweatpants #2.jpg',
@@ -623,16 +642,16 @@
                 ]
             },
             {
-                id: 104,
+                id: 107,
                 category: 'adult',
                 name: 'Striped Sweatpants Series',
                 price: 50.00,
                 colors: [
-                    {id: 'ast', name: 'Assortment', hex: '#475569'},
-                    {id: 'grn', name: 'Green Striped', hex: '#15803d'},
-                    {id: 'blu', name: 'Blue Striped', hex: '#2563eb'},
-                    {id: 'blk', name: 'Black Striped', hex: '#0f172a'},
-                    {id: 'pnk', name: 'Pink Striped', hex: '#db2777'}
+                    {id: 'ast', name: 'Assortment', hex: 'linear-gradient(135deg, #00ff00 0%, #0070ff 33%, #000000 66%, #ff85d5 100%)'},
+                    {id: 'grn', name: 'Green Striped', hex: '#00ff00'},
+                    {id: 'blu', name: 'Blue Striped', hex: '#0070ff'},
+                    {id: 'blk', name: 'Black Striped', hex: '#000000'},
+                    {id: 'pnk', name: 'Pink Striped', hex: '#ff85d5'}
                 ],
                 manualImages: [
                     'assortment striped sweatpants.jpg',
@@ -643,68 +662,52 @@
                 ]
             },
             {
-                id: 105,
-                category: 'adult',
-                name: 'Everyday Hoodie',
-                price: 45.00,
-                colors: [{id: 'gry', name: 'Grey', hex: '#9ca3af'}, {id: 'blk', name: 'Black', hex: '#000000'}, {id: 'red', name: 'Red', hex: '#ef4444'}],
-                manualImages: ['grey hoodie front.jpg', 'black hoodie front.jpg', 'red hoodie front.jpg']
-            },
-            {
-                id: 106,
-                category: 'adult',
-                name: 'Signature Headwear',
-                price: 25.00,
-                colors: [{id: 'grn', name: 'Green Cap', hex: '#16a34a'}, {id: 'red', name: 'Red Cap', hex: '#ef4444'}, {id: 'pnk', name: 'Pink Cap', hex: '#ec4899'}],
-                manualImages: ['green hat front.jpg', 'green hat back.jpg', 'red hat front.jpg', 'red hat back.jpg', 'pink hat front.jpg']
-            },
-            {
-                id: 107,
+                id: 108,
                 category: 'adult',
                 name: 'The Essentials Kit',
                 price: 90.00,
-                colors: [{id: 'blk', name: 'Black', hex: '#000000'}, {id: 'red', name: 'Red', hex: '#ef4444'}, {id: 'gry', name: 'Grey', hex: '#9ca3af'}],
+                colors: [{id: 'blk', name: 'Black', hex: '#000000'}, {id: 'red', name: 'Red', hex: '#ff0000'}, {id: 'gry', name: 'Grey', hex: '#9ca3af'}],
                 manualImages: ['assortment kits.jpg']
-            },
-            {
-                id: 108,
-                category: 'adult',
-                name: 'Casual Pink Shirt',
-                price: 50.00,
-                colors: [{id: 'pnk', name: 'Pink', hex: '#fbcfe8'}],
-                manualImages: ['pink shirt front.jpg', 'pink shirt back.jpg']
             },
             {
                 id: 109,
                 category: 'adult',
-                name: 'Essential Beanie',
-                price: 20.00,
-                colors: [{id: 'red', name: 'Red', hex: '#b91c1c'}, {id: 'gry', name: 'Grey', hex: '#9ca3af'}, {id: 'blk', name: 'Black', hex: '#000000'}],
-                manualImages: ['red sockhat front.jpg', 'grey sockhat front.jpg', 'black sockhat front.jpg']
+                name: 'Signature Headwear',
+                price: 25.00,
+                colors: [{id: 'grn', name: 'Green Cap', hex: '#22c55e'}, {id: 'red', name: 'Red Cap', hex: '#ff0000'}, {id: 'pnk', name: 'Pink Cap', hex: '#ff85d5'}],
+                manualImages: ['green hat front.jpg', 'green hat back.jpg', 'red hat front.jpg', 'red hat back.jpg', 'pink hat front.jpg']
             },
             {
                 id: 110,
                 category: 'adult',
-                name: 'Graphic Tee - Series 2',
-                price: 45.00,
-                colors: [{id: 'blk', name: 'Black', hex: '#000000'}],
-                manualImages: ['black designed teeshirt back #2.jpg', 'black designed teeshirt #3.jpg']
+                name: 'Essential Beanie',
+                price: 20.00,
+                colors: [{id: 'red', name: 'Red', hex: '#ff0000'}, {id: 'gry', name: 'Grey', hex: '#9ca3af'}, {id: 'blk', name: 'Black', hex: '#000000'}],
+                manualImages: ['red sockhat front.jpg', 'grey sockhat front.jpg', 'black sockhat front.jpg']
             },
             {
                 id: 111,
                 category: 'adult',
-                name: 'Graphic Tee - Series 3',
-                price: 45.00,
-                colors: [{id: 'blk', name: 'Black', hex: '#000000'}],
-                manualImages: ['black designed teeshirt front #4.jpg']
+                name: 'Casual Pink Shirt',
+                price: 50.00,
+                colors: [{id: 'pnk', name: 'Pink', hex: '#ff85d5'}],
+                manualImages: ['pink shirt front.jpg', 'pink shirt back.jpg']
             },
             {
                 id: 112,
                 category: 'adult',
                 name: 'Performance Jersey',
                 price: 50.00,
-                colors: [{id: 'wht', name: 'White', hex: '#ffffff'}, {id: 'blk', name: 'Black', hex: '#000000'}],
-                manualImages: ['white jersey front.jpg', 'white jersey back.jpg', 'black jersey back.jpg', 'grey striped jersy front.jpg']
+                colors: [{id: 'wht', name: 'White', hex: '#ffffff'}],
+                manualImages: ['white jersey front.jpg', 'white jersey back.jpg']
+            },
+            {
+                id: 113,
+                category: 'adult',
+                name: 'Striped Jersey',
+                price: 50.00,
+                colors: [{id: 'gry-str', name: 'Black/Grey Stripe', hex: '#4b5563'}],
+                manualImages: ['grey striped jersy front.jpg', 'black jersey back.jpg']
             }
         ];
 
@@ -901,7 +904,7 @@
                                                    value="${c.name}" 
                                                    class="hidden"
                                                    onchange="handleColorSelect(this, ${product.id}, '${c.name}')">
-                                            <label for="c-${product.id}-${c.id}" class="block w-6 h-6 rounded-full border border-slate-600 cursor-pointer shadow-sm transition-all" style="background-color: ${c.hex}" title="${c.name}"></label>
+                                            <label for="c-${product.id}-${c.id}" class="block w-6 h-6 rounded-full border border-slate-600 cursor-pointer shadow-sm transition-all" style="background: ${c.hex}" title="${c.name}"></label>
                                         </div>`).join('')}
                                 </div>
                             </div>
@@ -1259,7 +1262,7 @@ ${itemDetails}
             currentHeroSlide = index;
             const track = document.getElementById('hero-track');
             const dots = document.querySelectorAll('.hero-dot');
-            track.style.transform = `translateX(-${index * (100 / 6)}%)`; 
+            track.style.transform = `translateX(-${index * (100 / 4)}%)`; 
             dots.forEach((dot, idx) => {
                 if (idx === index) {
                     dot.classList.remove('bg-white/40'); dot.classList.add('bg-white');
@@ -1270,7 +1273,7 @@ ${itemDetails}
         }
 
         function autoPlayHero() {
-            if (currentHeroSlide >= 5) heroDirection = -1;
+            if (currentHeroSlide >= 3) heroDirection = -1;
             else if (currentHeroSlide <= 0) heroDirection = 1;
             currentHeroSlide += heroDirection;
             goToHeroSlide(currentHeroSlide);
@@ -1278,14 +1281,14 @@ ${itemDetails}
 
         function nextHeroSlide() {
             let next = currentHeroSlide + 1;
-            if (next > 5) next = 0;
+            if (next > 3) next = 0;
             goToHeroSlide(next);
             heroDirection = 1;
         }
 
         function prevHeroSlide() {
             let prev = currentHeroSlide - 1;
-            if (prev < 0) prev = 5;
+            if (prev < 0) prev = 3;
             goToHeroSlide(prev);
             heroDirection = -1;
         }

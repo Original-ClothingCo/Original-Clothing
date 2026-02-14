@@ -145,7 +145,7 @@
                 <button onclick="toggleSearchBar()" class="hover:text-sky-400 transition-colors focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                 </button>
-                <button onclick="navigate('cart')" class="relative group">
+                <button onclick="navigate('cart')" id="nav-cart" class="relative group nav-link">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:text-sky-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-sky-500 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center shadow-lg">0</span>
                 </button>
@@ -198,9 +198,15 @@
             <div class="absolute inset-0 z-10 flex items-center px-6 md:px-16 pointer-events-none">
                 <div class="max-w-2xl pointer-events-auto">
                     <span class="text-sky-400 font-bold tracking-widest uppercase text-sm mb-4 block">New Season Arrival</span>
-                    <h1 class="font-serif text-5xl md:text-8xl mb-6 leading-tight drop-shadow-lg">Define Your <br><span class="italic text-sky-400">Original</span> Style.</h1>
+                    <h1 class="font-serif text-5xl md:text-8xl mb-6 leading-tight drop-shadow-lg text-white">Define Your <br><span class="italic text-sky-400">Original</span> Style.</h1>
                     <a href="#collection" class="inline-block bg-sky-500 hover:bg-sky-600 text-white px-10 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-xl shadow-sky-500/20">Explore Collection</a>
                 </div>
+            </div>
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
+                <button onclick="goToHeroSlide(0)" class="w-3 h-3 rounded-full bg-white transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
+                <button onclick="goToHeroSlide(1)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
+                <button onclick="goToHeroSlide(2)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
+                <button onclick="goToHeroSlide(3)" class="w-3 h-3 rounded-full bg-white/40 transition-all hero-dot ring-2 ring-transparent hover:ring-sky-500"></button>
             </div>
         </section>
 
@@ -231,15 +237,9 @@
                     <h2 class="font-serif text-4xl md:text-5xl font-bold text-center mb-6 text-white text-shadow">About Originals</h2>
                     <div class="w-24 h-1 bg-sky-500 mx-auto mb-8 rounded-full"></div>
                     <div class="space-y-6 text-lg text-slate-300 leading-relaxed font-light">
-                        <p>
-                            Welcome to <span class="text-white font-semibold italic">Originals Clothing Company</span>, where passion for authentic style and premium quality meets modern design. Founded in the heart of Missouri, our brand is built on the idea that what you wear is a reflection of who you are.
-                        </p>
-                        <p>
-                            Our journey started with a simple goal: to produce high-quality apparel that we would be proud to wear ourselves. From the initial sketch to the final stitch, every garment is designed with meticulous attention to detail. We source the finest materials to ensure that our products are not only stylish but also durable and comfortable enough for everyday life.
-                        </p>
-                        <p>
-                            At Originals, we are inspired by the classics but are always looking forward. We are a community of creators, thinkers, and doers who value authenticity above all else. Thank you for being a part of our story.
-                        </p>
+                        <p>Welcome to <span class="text-white font-semibold italic">Originals Clothing Company</span>, where passion for authentic style and premium quality meets modern design. Founded in the heart of Missouri, our brand is built on the idea that what you wear is a reflection of who you are. We believe in creating more than just clothes; we craft pieces that tell a story and become a part of yours.</p>
+                        <p>Our journey started with a simple goal: to produce high-quality apparel that we would be proud to wear ourselves. From the initial sketch to the final stitch, every garment is designed with meticulous attention to detail. We source the finest materials to ensure that our products are not only stylish but also durable and comfortable enough for everyday life.</p>
+                        <p>At Originals, we are inspired by the classics but are always looking forward. We are a community of creators, thinkers, and doers who value authenticity above all else. Thank you for being a part of our story.</p>
                     </div>
                 </div>
             </div>
@@ -253,9 +253,9 @@
                 <div class="bg-slate-800/50 border border-slate-700/50 p-8 md:p-12 rounded-3xl shadow-2xl max-w-2xl mx-auto backdrop-blur-md text-white">
                     <h2 class="font-serif text-4xl font-bold text-center mb-6">Get In Touch</h2>
                     <form onsubmit="handleContactSubmit(event)" class="space-y-6">
-                        <div><label class="block text-xs font-bold uppercase mb-2">Full Name</label><input type="text" required class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-sky-500 outline-none"></div>
-                        <div><label class="block text-xs font-bold uppercase mb-2">Email</label><input type="email" required class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-sky-500 outline-none"></div>
-                        <div><label class="block text-xs font-bold uppercase mb-2">Message</label><textarea rows="4" required class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl focus:ring-2 focus:ring-sky-500 outline-none"></textarea></div>
+                        <div><label class="block text-xs font-bold uppercase mb-2">Full Name</label><input type="text" required class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl outline-none text-white focus:ring-2 focus:ring-sky-500"></div>
+                        <div><label class="block text-xs font-bold uppercase mb-2">Email</label><input type="email" required class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl outline-none text-white focus:ring-2 focus:ring-sky-500"></div>
+                        <div><label class="block text-xs font-bold uppercase mb-2">Message</label><textarea rows="4" required class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl outline-none text-white focus:ring-2 focus:ring-sky-500"></textarea></div>
                         <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-white py-4 rounded-xl font-bold shadow-lg">Send Message</button>
                     </form>
                 </div>
@@ -263,14 +263,15 @@
         </section>
     </div>
 
-    <!-- CART VIEW -->
+    <!-- BAG/CART VIEW -->
     <div id="view-cart" class="view-transition hidden opacity-0">
         <section class="pt-32 pb-20 px-4">
             <div class="container mx-auto">
                 <div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
-                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-white">Your Cart</h2>
-                    <button onclick="navigate('shop')" class="bg-slate-800 border border-slate-700 text-white py-3 px-8 rounded-xl font-semibold hover:bg-slate-700 transition-all">
-                        Continue Shopping
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-white">Your Bag</h2>
+                    <button onclick="navigate('shop')" class="bg-slate-800 border border-slate-700 text-white py-3 px-8 rounded-xl font-semibold hover:bg-slate-700 transition-all flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                        <span>Continue Shopping</span>
                     </button>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -278,13 +279,13 @@
                         <div id="full-cart-items" class="space-y-4"></div>
                         <div id="full-empty-msg" class="text-center py-20 bg-slate-800/30 rounded-3xl border border-dashed border-slate-700">
                             <p class="text-slate-500 text-xl mb-6">Your bag is empty.</p>
-                            <button onclick="navigate('shop')" class="bg-sky-500 text-white py-3 px-10 rounded-xl font-bold hover:bg-sky-600">Shop Best Sellers</button>
+                            <button onclick="navigate('shop')" class="bg-sky-500 text-white py-3 px-10 rounded-xl font-bold hover:bg-sky-600">Shop Originals</button>
                         </div>
                     </div>
                     <div id="cart-summary-card" class="bg-slate-800/50 border border-slate-700/50 p-8 rounded-3xl h-fit sticky top-32 backdrop-blur-md hidden text-white">
                         <h3 class="font-serif text-2xl font-bold mb-6">Order Summary</h3>
-                        <div class="flex justify-between items-center mb-8"><span class="font-bold">Total</span><span id="full-total" class="text-3xl font-bold">$0.00</span></div>
-                        <button onclick="navigate('checkout')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-4 rounded-xl font-bold shadow-lg active:scale-95">Proceed to Checkout</button>
+                        <div class="flex justify-between items-center mb-8"><span class="font-bold">Estimated Total</span><span id="full-total" class="text-3xl font-bold">$0.00</span></div>
+                        <button onclick="navigate('checkout')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-4 rounded-xl font-bold shadow-lg active:scale-95 transition-all">Proceed to Checkout</button>
                     </div>
                 </div>
             </div>
@@ -297,48 +298,103 @@
             <div class="container mx-auto max-w-6xl">
                 <div class="flex items-center space-x-4 mb-10 text-white">
                     <button onclick="navigate('cart')" class="text-slate-400 hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
-                    <h2 class="font-serif text-3xl font-bold">Checkout</h2>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold">Checkout</h2>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 text-white">
+                    <!-- Shipping Form Grid restored to 6 fields -->
                     <div class="lg:col-span-2 space-y-8">
-                        <div class="bg-slate-800/50 border border-slate-700/50 p-8 rounded-3xl">
-                            <h3 class="text-xl font-bold mb-6">1. Shipping Info</h3>
+                        <div class="bg-slate-800/50 border border-slate-700/50 p-8 rounded-3xl backdrop-blur-md">
+                            <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+                                <span class="w-8 h-8 bg-sky-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                                Shipping Information
+                            </h3>
                             <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
-                                <div class="md:col-span-3"><input type="text" id="shipping-name" placeholder="Full Name" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl outline-none"></div>
-                                <div class="md:col-span-3"><input type="email" id="shipping-email" placeholder="Email" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl outline-none"></div>
-                                <div class="md:col-span-6"><input type="text" id="shipping-address" placeholder="Address" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl outline-none"></div>
+                                <div class="md:col-span-3">
+                                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Full Name</label>
+                                    <input type="text" id="shipping-name" placeholder="John Doe" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl outline-none text-white focus:ring-2 focus:ring-sky-500">
+                                </div>
+                                <div class="md:col-span-3">
+                                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Email Address</label>
+                                    <input type="email" id="shipping-email" placeholder="john@example.com" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl outline-none text-white focus:ring-2 focus:ring-sky-500">
+                                </div>
+                                <div class="md:col-span-6">
+                                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Street Address</label>
+                                    <input type="text" id="shipping-address" placeholder="123 Missouri Ave" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl outline-none text-white focus:ring-2 focus:ring-sky-500">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">City</label>
+                                    <input type="text" id="shipping-city" placeholder="St. Louis" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl outline-none text-white focus:ring-2 focus:ring-sky-500">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">State</label>
+                                    <input type="text" id="shipping-state" placeholder="MO" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl outline-none text-white focus:ring-2 focus:ring-sky-500">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">ZIP Code</label>
+                                    <input type="text" id="shipping-zip" placeholder="63101" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl outline-none text-white focus:ring-2 focus:ring-sky-500">
+                                </div>
                             </div>
                         </div>
+
                         <div class="bg-slate-800/50 border border-slate-700/50 p-8 rounded-3xl">
-                            <h3 class="text-xl font-bold mb-6">2. Method</h3>
+                            <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+                                <span class="w-8 h-8 bg-sky-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                                Shipping Method
+                            </h3>
                             <div class="space-y-4">
-                                <label class="cursor-pointer block"><input type="radio" name="shipping" value="standard" class="shipping-radio hidden" checked onchange="updateCheckoutTotal()"><div class="border border-slate-700 rounded-xl p-4 flex justify-between items-center bg-slate-900/50"><span class="font-bold">Standard</span><span>$20.00</span></div></label>
-                                <label class="cursor-pointer block"><input type="radio" name="shipping" value="express" class="shipping-radio hidden" onchange="updateCheckoutTotal()"><div class="border border-slate-700 rounded-xl p-4 flex justify-between items-center bg-slate-900/50"><span class="font-bold">Express</span><span>$60.00</span></div></label>
+                                <label class="cursor-pointer block relative">
+                                    <input type="radio" name="shipping" value="standard" class="shipping-radio hidden" checked onchange="updateCheckoutTotal()">
+                                    <div class="border border-slate-700 rounded-xl p-4 flex justify-between items-center bg-slate-900/50 transition-all hover:border-sky-500">
+                                        <div><p class="font-bold">Standard Shipping</p><p class="text-sm text-slate-400">5-7 Business Days</p></div>
+                                        <span class="font-bold">$20.00</span>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer block relative">
+                                    <input type="radio" name="shipping" value="express" class="shipping-radio hidden" onchange="updateCheckoutTotal()">
+                                    <div class="border border-slate-700 rounded-xl p-4 flex justify-between items-center bg-slate-900/50 transition-all hover:border-sky-500">
+                                        <div><p class="font-bold">Express Shipping</p><p class="text-sm text-slate-400">1-2 Business Days</p></div>
+                                        <span class="font-bold">$60.00</span>
+                                    </div>
+                                </label>
                             </div>
                         </div>
+
                         <div class="bg-slate-800/50 border border-slate-700/50 p-8 rounded-3xl">
-                            <h3 class="text-xl font-bold mb-6">3. Payment</h3>
+                            <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+                                <span class="w-8 h-8 bg-sky-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                                Payment Method
+                            </h3>
                             <div id="paypal-button-container" class="w-full min-h-[150px]"></div>
                         </div>
                     </div>
+
+                    <!-- Checkout Sidebar Summary -->
                     <div class="lg:col-span-1">
-                        <div class="bg-slate-800 border border-slate-700 p-8 rounded-3xl sticky top-32">
+                        <div class="bg-slate-800 border border-slate-700 p-8 rounded-3xl sticky top-32 backdrop-blur-md">
                             <h3 class="font-serif text-2xl font-bold mb-6">Review Order</h3>
                             <div id="checkout-mini-list" class="space-y-4 mb-6 border-b border-slate-700 pb-6"></div>
+                            
+                            <!-- Promo Code Section -->
                             <div class="mb-6">
                                 <label class="block text-[10px] uppercase font-bold text-slate-400 mb-2">Promo Code</label>
                                 <div class="flex flex-col gap-3">
                                     <input type="text" id="promo-input" placeholder="Enter code" onkeyup="if(event.key==='Enter') applyPromoCode()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white outline-none focus:border-sky-500 uppercase text-sm">
-                                    <button type="button" onclick="applyPromoCode()" class="w-full bg-sky-500 hover:bg-sky-600 py-3 rounded-xl font-bold transition-all text-sm">Apply Promo Code</button>
+                                    <button type="button" onclick="applyPromoCode()" class="w-full bg-sky-500 hover:bg-sky-600 py-3 rounded-xl font-bold transition-all text-sm active:scale-95">Apply Promo Code</button>
                                 </div>
                                 <p id="promo-message" class="text-[10px] mt-2 font-bold hidden"></p>
                             </div>
-                            <div class="space-y-2 text-sm">
+
+                            <div class="space-y-4 text-slate-300 text-sm">
                                 <div class="flex justify-between"><span>Subtotal</span><span id="checkout-subtotal"></span></div>
-                                <div class="flex justify-between text-slate-400"><span>Tax</span><span id="checkout-tax"></span></div>
+                                <div class="flex justify-between text-slate-400"><span>Tax (MO 4.225%)</span><span id="checkout-tax"></span></div>
                                 <div class="flex justify-between"><span>Shipping</span><span id="checkout-shipping"></span></div>
-                                <div class="flex justify-between font-bold text-lg pt-4 border-t border-slate-700"><span>Total</span><span id="checkout-total"></span></div>
+                                <div class="flex justify-between font-bold text-lg pt-4 border-t border-slate-700 text-white"><span>Total</span><span id="checkout-total"></span></div>
                             </div>
+
+                            <button onclick="handleCreditCardCheckout()" class="w-full mt-8 bg-sky-500 hover:bg-sky-600 text-white py-4 rounded-xl font-bold shadow-lg active:scale-95 transition-all">
+                                Complete Purchase
+                            </button>
+                            <p class="text-center text-[10px] text-slate-500 mt-4 uppercase tracking-widest font-bold">Secure SSL Encrypted Checkout</p>
                         </div>
                     </div>
                 </div>
@@ -357,10 +413,10 @@
     </div>
 
     <div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden flex items-center justify-center p-4">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-sky-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
-        <button onclick="navigateLightbox(-1)" class="absolute left-6 top-1/2 -translate-y-1/2 p-4 text-white hover:text-sky-400 bg-white/10 rounded-full backdrop-blur-md"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
-        <img id="lightbox-img" src="" class="max-h-[85vh] max-w-full object-contain rounded-lg shadow-2xl">
-        <button onclick="navigateLightbox(1)" class="absolute right-6 top-1/2 -translate-y-1/2 p-4 text-white hover:text-sky-400 bg-white/10 rounded-full backdrop-blur-md"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-sky-400 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
+        <button onclick="navigateLightbox(-1)" class="absolute left-6 top-1/2 -translate-y-1/2 p-4 text-white hover:text-sky-400 bg-white/10 rounded-full backdrop-blur-md transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg></button>
+        <img id="lightbox-img" src="" class="max-h-[85vh] max-w-full object-contain rounded-lg shadow-2xl transition-all">
+        <button onclick="navigateLightbox(1)" class="absolute right-6 top-1/2 -translate-y-1/2 p-4 text-white hover:text-sky-400 bg-white/10 rounded-full backdrop-blur-md transition-all"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></button>
     </div>
 
     <div id="toast-container" class="fixed bottom-8 right-8 z-[110] flex flex-col gap-3 pointer-events-none text-white"></div>
@@ -423,6 +479,11 @@
             const target = document.getElementById(`view-${view}`);
             target.classList.remove('hidden');
             setTimeout(() => target.classList.remove('opacity-0'), 10);
+            
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('text-sky-400', 'border-b-2', 'border-sky-400'));
+            const navBtn = document.getElementById(`nav-${view}`);
+            if(navBtn) navBtn.classList.add('text-sky-400', 'border-b-2', 'border-sky-400');
+
             if(view === 'checkout') { updateCheckoutTotal(); initPayPalButtons(); }
             if(view === 'cart') updateCartUI();
             window.scrollTo(0,0);
@@ -455,7 +516,7 @@
                     <div class="p-5 flex-grow flex flex-col">
                         <h3 class="text-white text-lg font-bold mb-1">${p.name}</h3>
                         <p class="text-sky-400 font-semibold mb-4">$${p.price.toFixed(2)}</p>
-                        <div class="space-y-4 mb-6 text-xs">
+                        <div class="space-y-4 mb-6 text-xs text-white">
                             <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Size</p>
                                 <div class="flex gap-2 flex-wrap">${['S','M','L','XL','XXL','3XL','4XL'].map(s => `<div class="size-btn"><input type="radio" name="size-${p.id}" id="s-${p.id}-${s}" value="${s}" class="hidden"><label for="s-${p.id}-${s}" class="h-8 px-3 rounded border border-slate-700 flex items-center justify-center font-bold cursor-pointer hover:border-sky-500 transition-colors">${s}</label></div>`).join('')}</div>
                             </div>
@@ -463,7 +524,7 @@
                                 <div class="flex gap-3 flex-wrap">${p.colors.map(c => `<div class="color-btn"><input type="radio" name="color-${p.id}" id="c-${p.id}-${c.id}" value="${c.name}" class="hidden" onchange="handleColorSelect(this, ${p.id}, '${c.name}')"><label for="c-${p.id}-${c.id}" class="block w-6 h-6 rounded-full border border-slate-600 cursor-pointer shadow-sm" style="background: ${c.hex}"></label></div>`).join('')}</div>
                             </div>
                         </div>
-                        <button onclick="addToCart(${p.id})" class="w-full bg-slate-700 hover:bg-sky-500 py-3 rounded-xl font-bold transition-all mt-auto">Add to Bag</button>
+                        <button onclick="addToCart(${p.id})" class="w-full bg-slate-700 hover:bg-sky-500 py-3 rounded-xl font-bold transition-all mt-auto text-white">Add to Bag</button>
                     </div>
                 </div>`).join('');
         }
@@ -506,8 +567,14 @@
                 total += i.price;
                 return `<div class="flex items-center space-x-6 bg-slate-800/40 p-5 rounded-3xl border border-slate-700/50">
                     <img src="${i.images[0]}" class="w-24 h-28 object-cover rounded-2xl">
-                    <div class="flex-grow"><h4 class="font-bold text-lg">${i.name}</h4><p class="text-sm text-slate-400">${i.selColor} • ${i.selSize}</p><p class="text-sky-400 font-bold mt-2">$${i.price.toFixed(2)}</p></div>
-                    <button onclick="removeFromCart(${i.cartId})" class="p-3 text-slate-500 hover:text-rose-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg></button>
+                    <div class="flex-grow text-white">
+                        <h4 class="font-bold text-lg">${i.name}</h4>
+                        <p class="text-sm text-slate-400">${i.selColor} • ${i.selSize}</p>
+                        <p class="text-sky-400 font-bold mt-2">$${i.price.toFixed(2)}</p>
+                    </div>
+                    <button onclick="removeFromCart(${i.cartId})" class="p-3 text-slate-500 hover:text-rose-400 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                    </button>
                 </div>`;
             }).join('');
             document.getElementById('full-total').innerText = `$${total.toFixed(2)}`;
@@ -539,13 +606,25 @@
             let shipping = 20.00;
             const shipMethod = document.querySelector('input[name="shipping"]:checked');
             if (shipMethod && shipMethod.value === 'express') shipping = 60.00;
+            
+            // Logic for promo code or subtotal threshold
             if (isFreeShipCodeActive || subtotal > 100) shipping = 0;
+            
             let tax = subtotal * 0.04225;
             
-            list.innerHTML = cart.map(i => `<div class="flex items-center justify-between text-xs text-white"><span>${i.name} (x1)</span><span>$${i.price.toFixed(2)}</span></div>`).join('');
+            list.innerHTML = cart.map(i => `<div class="flex items-center justify-between text-xs text-white"><span>${i.name} (${i.selSize})</span><span>$${i.price.toFixed(2)}</span></div>`).join('');
             document.getElementById('checkout-subtotal').innerText = `$${subtotal.toFixed(2)}`;
             document.getElementById('checkout-tax').innerText = `$${tax.toFixed(2)}`;
-            document.getElementById('checkout-shipping').innerText = shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`;
+            
+            const shipElem = document.getElementById('checkout-shipping');
+            if (shipping === 0) {
+                shipElem.innerText = 'Free ($0.00)';
+                shipElem.className = 'text-emerald-400 font-bold';
+            } else {
+                shipElem.innerText = `$${shipping.toFixed(2)}`;
+                shipElem.className = 'text-slate-300';
+            }
+            
             document.getElementById('checkout-total').innerText = `$${(subtotal + tax + shipping).toFixed(2)}`;
         }
 
@@ -570,7 +649,7 @@
 
         function renderMockPayPal(container) {
             container.innerHTML = `<div class="bg-amber-100 p-4 rounded-xl text-amber-900 text-xs mb-3 border border-amber-200">PayPal restricted in preview. Click below to simulate purchase.</div>
-                <button onclick="handleOrderSuccess('Simulated PayPal')" class="w-full h-12 bg-[#FFC439] rounded-lg font-bold flex items-center justify-center text-blue-900 transition-all hover:brightness-95 active:scale-95">Pay with <span class="italic ml-1">PayPal</span></button>`;
+                <button onclick="handleOrderSuccess('Simulated PayPal')" class="w-full h-12 bg-[#FFC439] rounded-lg font-bold flex items-center justify-center text-blue-900 transition-all hover:brightness-95 active:scale-95 shadow-lg">Pay with <span class="italic ml-1">PayPal</span></button>`;
         }
 
         function handleOrderSuccess(method) {
@@ -596,13 +675,22 @@
         function closeModal() { document.getElementById('generalModal').classList.add('hidden'); }
         function openLightbox(pid, idx) { currentLightboxProductId = pid; currentLightboxImageIndex = idx; document.getElementById('lightbox-img').src = products.find(i => i.id === pid).images[idx]; document.getElementById('lightbox').classList.remove('hidden'); }
         function closeLightbox() { document.getElementById('lightbox').classList.add('hidden'); }
+        function navigateLightbox(dir) {
+            const p = products.find(i => i.id === currentLightboxProductId);
+            currentLightboxImageIndex = (currentLightboxImageIndex + dir + p.images.length) % p.images.length;
+            document.getElementById('lightbox-img').src = p.images[currentLightboxImageIndex];
+        }
         function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
         function toggleSearchBar() { document.getElementById('search-container').classList.toggle('search-hidden'); document.getElementById('search-container').classList.toggle('search-visible'); }
         function handleSearch(q) { searchQuery = q.toLowerCase(); renderProducts(); }
-        function goToHeroSlide(i) { currentHeroSlide = i; document.getElementById('hero-track').style.transform = `translateX(-${i * 25}%)`; }
+        function goToHeroSlide(i) { currentHeroSlide = i; document.getElementById('hero-track').style.transform = `translateX(-${i * 25}%)`; document.querySelectorAll('.hero-dot').forEach((d, idx) => d.classList.toggle('bg-white', idx===i)); }
         function nextHeroSlide() { currentHeroSlide = (currentHeroSlide + 1) % 4; goToHeroSlide(currentHeroSlide); }
         function startHeroAutoPlay() { heroInterval = setInterval(nextHeroSlide, 5000); }
         function stopHeroAutoPlay() { clearInterval(heroInterval); }
+
+        function handleCreditCardCheckout() {
+            openModal('sky-500', 'Payment Required', 'Please use the secure PayPal button to complete your transaction.', '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />');
+        }
 
         document.addEventListener('DOMContentLoaded', () => { renderProducts(); startHeroAutoPlay(); });
     </script>
